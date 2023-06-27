@@ -41,17 +41,20 @@ const data = [
   {
     tema: "Nuestra Empresa",
     texto:
-      "Hola, esta es la data 1. Si quieres saber mas sobre como se debe conseguir mas informacion llamame por el dia, te contestare apenas me sea posible",
+      "Somos una empresa con amplia trayectoria en el rubro de tecnología, ofrecemos una gama completa de PC y tablets, monitores, accesorios, smartphones, soluciones de smart home y smart collaboration, realidad virtual y aumentada (AR/VR), Internet de las cosas (IoT) comercial, software, servicios y soluciones de centro de datos de infraestructura inteligente en todo el mundo.",
   },
   {
     tema: "Productos",
     texto:
-      "Hola, esta es la data 2. Si quieres saber mas sobre como se debe conseguir mas informacion llamame por el dia, te contestare apenas me sea posible",
+      "Somos una empresa con amplia trayectoria en el rubro de tecnología, ofrecemos una gama completa de PC y tablets, monitores, accesorios, smartphones, soluciones de smart home y smart collaboration, realidad virtual y aumentada (AR/VR), Internet de las cosas (IoT) comercial, software, servicios y soluciones de centro de datos de infraestructura inteligente en todo el mundo.",
   },
   {
     tema: "Contactanos",
     texto:
-      "Hola, esta es la data 3. Si quieres saber mas sobre como se debe conseguir mas informacion llamame por el dia, te contestare apenas me sea posible",
+      `Contáctanos y te ayudaremos con nuestros expertos en las consultas o dudas que tengas a través de nuestros canales de atención.
+      Servicio al cliente: (01) 999-999
+      email: servicioalcliente@tienda.com
+      Servicio Técnico: (01) 999-999`,
   },
 
 ];
