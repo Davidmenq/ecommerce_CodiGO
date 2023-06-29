@@ -19,7 +19,6 @@ const Register = () => {
                     <InputDatos contenido={'Usuario'} tipo={'input'} placeholder={''} labelColor={'#ffffff'}></InputDatos>
                     <InputDatos contenido={'Contraseña'} tipo={'password'} placeholder={''} labelColor={'#ffffff'}></InputDatos>
                     <InputDatos contenido={'Repetir Contraseña'} tipo={'password'} placeholder={''} labelColor={'#ffffff'}></InputDatos>                    
-                    <button className='text-white'></button>
                     <BtnForm label={'Finalizar'} labelColor={'white'}></BtnForm>
                 </form>                
                 <div className='flex flex-grow justify-center p-4'>
