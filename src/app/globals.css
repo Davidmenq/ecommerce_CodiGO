@@ -3,3 +3,17 @@
 @tailwind utilities;
 
 
+/* Effect for line horizontal in the NavBar  */
+@keyframes line-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-line-animation {
+  animation-name: line-animation;
+  animation-duration: 0.3s;
+}
