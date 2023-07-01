@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "name":"Memoria Ssd 240 gb",
+        "price":120,
+        "image": "/imagenes/Products/ssd.png",
+        "quantity":1
+    },
+    {
+        "id":2,
+        "name":"Disco Duro 1tb",
+        "price":120,
+        "image": "/imagenes/Products/discoDuro1tb.png",
+        "quantity":1
+    },
+    {
+        "id":3,
+        "name":"Memoria M.2 240gb",
+        "price":150,
+        "image": "/imagenes/Products/ssdM2.jpg",
+        "quantity":1
+    },
+    {
+        "id":4,
+        "name":"Memoria Ram 4gb",
+        "price":80,
+        "image": "/imagenes/Products/memoria4gb.png",
+        "quantity":1
+    },
+    {
+        "id":5,
+        "name":"Memoria Ram 8gb",
+        "price":150,
+        "image": "/imagenes/Products/memoria8gb.webp",
+        "quantity":1
+    },
+    {
+        "id":6,
+        "name":"Fuente de Poder 600w",
+        "price":300,
+        "image": "/imagenes/Products/fuente600w.png",
+        "quantity":1
+    }
+]
