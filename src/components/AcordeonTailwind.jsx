@@ -24,8 +24,9 @@ const AcordeonTailwind = () => {
               <span>{selected === i ?  '-' : '+'}</span>
             </div>
             <div className={selected === i 
-              ?  'text-white h-auto max-h-[9999px] transition-all duration-[0.5s] ease-[cubic-bezier(1,0,1,0)]' 
-              : 'text-white max-h-0 overflow-hidden transition-all duration-[0.5s] ease-[cubic-bezier(0,1,0,1)]'}>
+              ?  'text-white h-auto max-h-fit transition-opacity' 
+              : 'text-white max-h-0 overflow-hidden transition-opacity'
+            }>
               {item.texto}
             </div>
           </div>
