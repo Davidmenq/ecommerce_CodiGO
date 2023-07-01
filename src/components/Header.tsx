@@ -46,12 +46,12 @@ const Header = () => {
   const [navbar, setNavbar] = useState(false);
   return (
     <header className="sticky top-0 z-10">
-      <nav className="w-full px-6 py-4 bg-gradient-to-t from-[#0F2027] bg-[#2C5364]">
-        <div className="justify-between lg:w-full lg:items-center lg:flex lg:px-2">
+      <nav className="w-full px-6 py-2 bg-gradient-to-t from-[#0F2027] bg-[#2C5364]">
+        <div className="justify-between lg:w-full lg:items-center lg:flex lg:px-10">
           {/* First part */}
           <>
             {/* Hamburguer menu for mobile*/}
-            <div className="flex items-center justify-between py-1.5 lg:py-5">
+            <div className="flex items-center justify-between py-1.5 lg:py-0">
               <div className="lg:hidden">
                 <button
                   className="p-1 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -93,9 +93,7 @@ const Header = () => {
                 </button>
               </div>
               <Link href={"/"}>
-                <h1 className="text-2xl text-[#50C2D8] font-bold">
-                  TECHN<span className="text-[#8AD2E1] font-bold">OLOGY</span>
-                </h1>
+                <img src="/imagenes/Prueba2.png" alt="Logo" width={60}/>
               </Link>
               <div className="flex space-x-4 lg:hidden">{renderIconsDer()}</div>
             </div>
