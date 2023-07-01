@@ -5,7 +5,7 @@ const Card = ({ characters = [] }) => {
     <div className='flex flex-wrap'>
         {
             characters.map((item,index) => (
-                <div  key={index} className='flex flex-col w-1/5 m-2 justify-center align-middle'>
+                <div  key={index} className='flex flex-col w-1/2 md:w-1/4 m-2 justify-center align-middle'>
                     
                     <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                         <div
