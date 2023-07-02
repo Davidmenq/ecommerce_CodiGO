@@ -28,7 +28,7 @@ const Productos = () => {
   
     return (
     <>
-    <h1>Productos</h1>
+    <h1 className='flex justify-center'>Productos</h1>
         <div>
             <Card characters = {characters}/>
         </div>

@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="flex w-full justify-between p-5 sticky top-0 bg-gradient-to-t from-[#0F2027] bg-[#2C5364]">
+    <header className="flex w-full justify-between p-5 sticky top-0 bg-gradient-to-t from-[#0F2027] bg-[#2C5364] z-50">
       <>
         <div className="">
           <svg
