@@ -4,7 +4,6 @@ import Image from 'next/image'
 /* se agrega los atributos que tendra input datos */
 interface Props {
     ruta: string,
-
 }
 
 const ImageForm: FC<Props> = ({ ruta }) => {
