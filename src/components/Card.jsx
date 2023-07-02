@@ -2,10 +2,10 @@ import React from 'react'
 
 const Card = ({ characters = [] }) => {
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap justify-center align-middle'>
         {
             characters.map((item,index) => (
-                <div  key={index} className='flex flex-col w-1/2 md:w-1/4 m-2 justify-center align-middle'>
+                <div  key={item} className='flex w-40 md:w-1/4 m-3 '>
                     
                     <div className="block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                         <div
@@ -33,7 +33,7 @@ const Card = ({ characters = [] }) => {
                             </p>
                             <button
                                 type="button"
-                                className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal
+                                className="inline-block rounded bg-cyan-950 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal
                                  text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 
                                  hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 
                                  focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none 
