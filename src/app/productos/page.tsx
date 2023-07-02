@@ -7,12 +7,16 @@ const Productos = () => {
 
     const [characters, setCharacters] = useState([]);
   
-    const initialUrl= 'https://rickandmortyapi.com/api/character';
+    const initialUrl= 'https://dummyjson.com/products';
 
     const fetchCharacters = (url:any) =>{
         fetch(url)
             .then(response => response.json())
-            .then(data => setCharacters(data.results) )  //console.log(data.results))
+            //.then(data => console.log(data.products))
+            .then(data => {
+                console.log(data.products)
+                setCharacters(data.products)
+            })
             .catch(err => console.log(err))
     }
 
