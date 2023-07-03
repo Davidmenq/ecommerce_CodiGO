@@ -15,17 +15,18 @@ const AcordeonTailwind = () => {
   }
 
   return (
-    <div className="flex h-auto w-screen justify-center items-center">
-      <div className="w-auto">
+    <div className="flex h-auto w-full justify-center items-center">
+      <div className="w-auto  ">
         {data.map((item, i) => (
-          <div className=" px-5 py-2.5 bg-[#0F2027]">
+          <div key={i} className=" px-5 py-2.5 bg-[#0F2027]">
             <div className="text-white flex justify-between items-center border-b-2 cursor-pointer" onClick={()=>toggle(i)}>
               <h2>{item.tema}</h2>
               <span>{selected === i ?  '-' : '+'}</span>
             </div>
             <div className={selected === i 
-              ?  'text-white h-auto max-h-[9999px] transition-all duration-[0.5s] ease-[cubic-bezier(1,0,1,0)]' 
-              : 'text-white max-h-0 overflow-hidden transition-all duration-[0.5s] ease-[cubic-bezier(0,1,0,1)]'}>
+              ?  'text-white h-auto max-h-fit transition-opacity' 
+              : 'text-white max-h-0 overflow-hidden transition-opacity'
+            }>
               {item.texto}
             </div>
           </div>

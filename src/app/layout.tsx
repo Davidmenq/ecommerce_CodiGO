@@ -25,12 +25,13 @@ export default function RootLayout({
       <RecoilRoot>        
       <body className={inter.className}>
         <Toaster position='bottom-center'/>
-        <Navbar/> 
-          <>                   
-            {children}                      
-          </>                                       
+        <Header/>  
+          <>
+            {children}
+          </>
+        <Footer/>    
       </body>
       </RecoilRoot>
     </html>    
-  )
+  )                                   
 }
