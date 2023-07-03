@@ -14,17 +14,6 @@ export default function Home() {
         button={<BtnForm label="Ver productos" labelColor="white" />}
       />
       <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
-      <CardInstructivo/>
     </main>
   );
 }
