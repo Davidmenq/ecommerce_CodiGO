@@ -2,4 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Effect for line horizontal in the NavBar  */
+@keyframes line-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 
+.animate-line-animation {
+  animation-name: line-animation;
+  animation-duration: 0.3s;
+}
+
+/* Effect for the button */
+.efectButon {
+  animation: scale 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Effect for the p */
+.typing {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Img */
+.fade-in {
+  animation: fade-in-animation 1s ease-in-out forwards;
+}
+
+@keyframes fade-in-animation {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* H1 */
+.glow-effect {
+  color: #fff;
+  animation: glow-animation 2s ease-in-out infinite;
+}
+
+@keyframes glow-animation {
+  0% {
+    text-shadow: 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff;
+  }
+  50% {
+    text-shadow: 0 0 20px #50c2d8, 0 0 30px #50c2d8, 0 0 40px #50c2d8;
+  }
+  100% {
+    text-shadow: 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff;
+  }
+}
+
+/* 
+.typing {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 20ch;
+  
+  animation: typing 2s steps(20), blink .5s infinite step-end alternate;
+  overflow:hidden;
+  }
+  
+  @keyFrames typing {
+  
+  from { width: 0}
+  }
+  
+  @keyFrames blink {
+   50% { border-color: transparent}
+  } */
