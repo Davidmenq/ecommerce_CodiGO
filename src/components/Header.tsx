@@ -45,7 +45,7 @@ const Header = () => {
   /* UseState -> used for change the icons of Hamburguer menu and Close */
   const [navbar, setNavbar] = useState(false);
   return (
-    <header className="sticky top-0 z-10">
+    <header className="sticky top-0 z-10 md:static">
       <nav className="w-full px-6 py-2 bg-gradient-to-t from-[#0F2027] bg-[#2C5364]">
         <div className="justify-between lg:w-full lg:items-center lg:flex lg:px-10">
           {/* First part */}
