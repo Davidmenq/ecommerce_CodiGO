@@ -1,4 +1,5 @@
 import BtnForm from "@/components/BtnForm";
+import CardInstructivo from "@/components/CardInstructivo";
 import Hero from "@/components/Hero";
 import Maps from "@/components/Maps";
 import React from "react";
@@ -12,6 +13,7 @@ export default function Home() {
         rutaimg={"/imagenes/Hero8.png"}
         button={<BtnForm label="Ver productos" labelColor="white" />}
       />
+      <CardInstructivo/>
     </main>
   );
 }
