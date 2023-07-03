@@ -19,19 +19,18 @@ const Product = ({ product }) => {
                 })
             })
         }
-
+        /* se usa una libreria de notificaciones */
         toast.success(`${product.name} Agregado al Carrito`)
-
     }
 
     return (
         <div className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl'>
 
-            <img className='mx-auto w-[350px] h-[200px] object-contain' src={product.image} alt="" />
+            <img className='mx-auto w-[350px] h-[200px] object-contain' src={product.images[0]} alt="" />
 
             <div className='mt-4 px-6'>
                 <div className='flex items-center flex-col text-[26px]'>
-                    <h1>{product.name}</h1>
+                    <h1>{product.title}</h1>
                     <h3 className='font-light'>S/{product.price}</h3>
                 </div>
                 <button
@@ -42,5 +41,4 @@ const Product = ({ product }) => {
         </div>
     )
 }
-
 export default Product
