@@ -8,12 +8,20 @@ import { useEffect, useState } from 'react'
 import React from 'react';
 
 export default function Home() {
+
+  /* characteres son los productos obtenidos de la api, tiene como valor iniciar "[]"
+  y setCharacters servirá para actualizar el estado de characters */
   const [characters, setCharacters] = useState([]);
 
   /* url y categorias a filtrar */
   const initialUrl= 'https://dummyjson.com/products';
   const category1 = 'smartphones';
   const category2 = 'laptops';
+
+  /* funcion que nos permite inicializar una sola vez fetchCharacteres */
+  useEffect(() => {
+    fetchCharacters(initialUrl);
+  }, [])
 
   const fetchCharacters = (url:any) =>{
     fetch(url)
@@ -24,19 +32,17 @@ export default function Home() {
             console.log(products)
             setCharacters(products)                      
         })
+        /* catch para el manejo de errores */
         .catch(err => console.log(err))
   }  
-  useEffect(() => {
-    fetchCharacters(initialUrl);
-  }, [])
 
-  
 
   return (
     <main className="flex w-full flex-col items-center justify-between ">
       <section className='container w-[100vw] mt-5'>
         <h1 className='text-4xl mt-4 text-center font-light'>Nuestros Productos</h1>
         <div className='mt-4 grid grid-cols-1 md:grid-cols-3 gap-4'>
+          {/* se imprime por medio de map los productos con el componente Product con los datos de la api  */}
           {characters.map(characters => <Product product={characters} />)}
         </div>
       </section>
