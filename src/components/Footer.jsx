@@ -8,7 +8,7 @@ const Footer = () => {
         <div className='mt-4 mb-20'>
             <AcordeonTailwind />
         </div>
-        <div className='w-screen flex-col'>
+        <div className='w-auto flex-col'>
             <div className='flex flex-row justify-center'>
                 <Link href='https://www.instagram.com' target="_blank" rel="noopener noreferrer">
                     <Image src='/imagenes/instagram.svg' href='https://www.youtube.com' width={20} height={20} alt="link de Instagram" className="mx-2 cursor-pointer h-10 w-10"/>

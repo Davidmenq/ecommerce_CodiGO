@@ -27,12 +27,15 @@ const Productos = () => {
     )
   
     return (
-    <>
-    <h1 className='flex justify-center'>Productos</h1>
-        <div>
-            <Card characters = {characters}/>
+    <div className='w-auto'>
+        <h1 className='flex justify-center'>Productos</h1>
+        <div className="flex flex-wrap justify-center align-middle">
+          {characters.map((item) => (
+            <Card key={item.id} title = {item.title} description = {item.description} image = {item.images[0]}/>
+          ))}
         </div>
-    </>
+        
+    </div>
   )
 }
 
