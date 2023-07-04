@@ -8,21 +8,21 @@ import React from 'react'
 const Login = () => {
     return (        
         <div className=''>
-            <div className='flex flex-col bg-white text-center lg:mx-80 py-5'>
+            <div className='flex flex-col bg-white text-center lg:mx-80 py-5 items-center'>
                 <div className='flex flex-grow p-2 md:hidden'>
                     <Links ruta={'/login'} label={'Inicio'} labelColor={''}></Links>
                     <Links ruta={'/recoverPassword'} label={'>Iniciar Sesión'} labelColor={''}></Links>
                 </div>
                 <PrincipalFontForm contenido={'Iniciar Sesión'} color={'#50C2D8'}></PrincipalFontForm>
                 <ImageForm ruta='/imagenes/imagen1.webp' ></ImageForm>
-                <form className='w-[90vw] sm:w-[50vw] m-auto p-4 md:p-10 py-8 flex flex-col rounded-xl'>
+                <form className='w-10  m-auto  py-8 flex flex-col rounded-xl items-center'>
                     <InputDatos contenido={'Correo Electrónico'} tipo={'email'} placeholder={''} labelColor={'#50C2D8'}></InputDatos>
                     <InputDatos contenido={'Contraseña'} tipo={'password'} placeholder={''} labelColor={'#50C2D8'}></InputDatos>
-                    <div className='flex justify-start mt-2 p-2 lg:px-16 xl:px-20 '>
+                    <div className='flex justify-start mt-2 p-2 lg:auto xl:auto '>
                         <input type="checkbox" className="" />
                         <h3 className='m-1 text-[#50C2D8] font-light'>Recordar</h3>
                     </div>
-                    <button className='text-white'></button>
+                    
                     <BtnForm label={'Iniciar Sesión'} labelColor={'white'}></BtnForm>
                 </form>
                 <div className='flex justify-center p-6 '>

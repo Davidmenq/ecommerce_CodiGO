@@ -5,11 +5,11 @@ import React from "react";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col ">
+    <main className="flex min-h-screen flex-col">
       <Hero
         titulo="Technology" 
         parrafo="Somos una empresa líder en ventas de productos tecnologícos"
-        rutaimg={"/imagenes/imgbanner.png"}
+        rutaimg={"/imagenes/Hero8.png"}
         button={<BtnForm label="Ver productos" labelColor="white"/>}
       />
     {/* <Maps/>  */}
