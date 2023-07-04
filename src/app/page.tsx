@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react'
 import BtnForm from "@/components/BtnForm";
 import Hero from "@/components/Hero";
-
+import CardInstructivo from '../components/CardInstructivo'
 import React from 'react';
 
 
