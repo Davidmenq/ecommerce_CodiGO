@@ -31,7 +31,7 @@ const Productos = () => {
         <h1 className='flex justify-center'>Productos</h1>
         <div className="flex flex-wrap justify-center align-middle">
           {characters.map((item,index) => (
-            <Card key={index} title = {item.title} description = {item.description} image = {item.images[0]}/>
+            <Card key={item.id} id={item.id} title = {item.title} description = {item.description} image = {item.images[0]}/>
           ))}
         </div>
         
