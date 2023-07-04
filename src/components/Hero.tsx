@@ -9,7 +9,7 @@ interface Props {
 
 const Hero: FC<Props> = ({ titulo, parrafo, rutaimg, button }) => {
   return (
-    <div className="relative isolate overflow-hidden pt-8">
+    <div className="relative isolate overflow-hidden pt-8 w-full">
       <img
         src={rutaimg}
         alt="Productos Tecnológicos"

@@ -7,7 +7,7 @@ import React from 'react'
 
 const Login = () => {
     return (        
-        <div className=''>
+        <div className='w-full h-full flex flex-col p-10'>
             <div className='flex flex-col bg-white text-center lg:mx-80 py-5 items-center'>
                 <div className='flex flex-grow p-2 md:hidden'>
                     <Links ruta={'/login'} label={'Inicio'} labelColor={''}></Links>

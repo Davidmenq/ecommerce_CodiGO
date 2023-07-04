@@ -7,7 +7,7 @@ import React from 'react'
 
 const RecoverPassword = () => {
     return (
-        <>
+        <div className='w-full h-full flex flex-col p-10'>
             <div className='flex flex-col bg-white text-center lg:mx-80 py-5'>
                 <div className='flex flex-grow p-2'>
                     <Links ruta={'/login'} label={'Iniciar Sesión'} labelColor={''}></Links>
@@ -24,14 +24,13 @@ const RecoverPassword = () => {
                     </div>
                     <button className='text-white'></button>
                     <BtnForm label={'Enviar'} labelColor={'white'}></BtnForm>
-                </form>                
+                </form>
                 <div className='flex flex-grow justify-center p-4'>
                     <p className='text-black'>¿Recuperaste tu cuenta?</p>
                     <Links ruta={'/login'} label={'Ingresar'} labelColor={'#2C5364'}></Links>
                 </div>
-
             </div>
-        </>
+        </div>
     )
 }
 

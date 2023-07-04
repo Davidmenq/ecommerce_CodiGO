@@ -7,7 +7,7 @@ import React from 'react'
 
 const Register = () => {
     return (
-        <div className=''>
+        <div className='w-full h-full flex flex-col p-10'>
             <div className='flex flex-grow p-2 md:hidden'>
                     <Links ruta={'/login'} label={'Inicio'} labelColor={''}></Links>
                     <Links ruta={'/recoverPassword'} label={'>Registro'} labelColor={''}></Links>
@@ -25,7 +25,6 @@ const Register = () => {
                     <p className='text-black'>¿Ya tienes una cuenta?</p>
                     <Links ruta={'/login'} label={'Ingresar'} labelColor={'#ffffff'}></Links>
                 </div>
-
             </div>
         </div>
     )
