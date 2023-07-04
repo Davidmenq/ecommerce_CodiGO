@@ -41,7 +41,7 @@ const Product = ({ product }) => {
             <div className='mt-4 px-6'>
                 <div className='flex items-center flex-col text-[26px]'>
                     <h1>{product.title}</h1>
-                    <h3 className='font-light'>S/{product.price}</h3>
+                    <h3 className='font-light'>$/{product.price}</h3>
                 </div>
                 {/* boton que ejecutará la funcián de agregar productos al carrito */}
                 <button

@@ -20,7 +20,7 @@ const Cart = () => {
 
     return (
         <div>
-            <div className='container mx-auto'>
+            <div className='container mx-auto p-10'>
                 {cartItem.length <= 0 ? 
                 <div className='flex flex-col gap-10'>
                     <h1 className='text-center text-4xl mt-32 font-normal'>Carro Vacio</h1>
@@ -30,7 +30,7 @@ const Cart = () => {
 
                 {cartItem.length > 0 && (<div>
                     <div className='flex flex-col lg:w-[20vw] mx-auto p-10 gap-5 text-center items-center rounded-2xl'>
-                        <h2 className='text-[3vh] font-light'>Total: S/{totalPrice()}</h2>
+                        <h2 className='text-[3vh] font-light'>Total: $/{totalPrice()}</h2>
                         <button className='bg-[#50C2D8] text-white py-4 px-10 mt-4 block mx-auto hover:bg-white hover:text-[#50C2D8] rounded-2xl border-[#50C2D8] border-2 ease-in-out duration-300 ' onClick={createCheckoutSession}>Pagar</button>
                     </div>
                 </div>)}
