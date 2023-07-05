@@ -2,31 +2,36 @@
 
 import { useState, useEffect } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid';
-import { RadioGroup } from '@headlessui/react';
 
 const product = {
-  name: "Basic Tee 6-Pack",
-  price: "$192",
-  href: "#",
-  breadcrumbs: [
-    { id: 1, name: "Men", href: "#" },
-    { id: 2, name: "Clothing", href: "#" },
-  ],
-  colors: [
-    { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
-    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
-    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
-  ],
   description:
-    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+    `Pantalla más brillante Super Retina XDR de 6.1" con función Siempre encendida, que mantiene su información de un vistazo.
+
+    Dynamic Island, una nueva forma mágica de interactuar con el iPhone.`,
   highlights: [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton",
+    'Dimensiones 160,7 x 77,6 x 7,9 mm (6,33 x 3,06 x 0,31 pulgadas)',
+    'Pantalla LTPO Super Retina XDR OLED, 120 Hz, HDR10, Dolby Vision, 1000 nits (típico), 2000 nits (HBM)',
+    'Apple A16 Bionic (4nm)',
+    'iOS 16, actualizable a iOS 16.0.3',
+    'Chip Fisico',
+    '48 MP, f/1,8, 24 mm (gran angular), 1/1,28", 1,22 µm, PDAF de doble píxel, cambio de sensor OIS',
+    'Selfie: 12 MP, f/1.9, 23 mm (ancho), 1/3.6", PDAF',
+    'Li-Ion 4323 mAh',
+    'SE EMITE BOLETA DE VENTA',
+    'INCLUYE CARGADOR + CASE',
   ],
   details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+    `Pantalla más brillante Super Retina XDR de 6.1" con función Siempre encendida, que mantiene su información de un vistazo.
+
+    Dynamic Island, una nueva forma mágica de interactuar con el iPhone.
+    
+    SOS de emergencia vía satélite y Crash Detection: funciones innovadoras diseñadas para salvar vidas.
+    
+    Cámara principal de 48MP con un sensor avanzado de cuatro píxeles para hasta 4 veces la resolución.
+    
+    Chip A16 Bionic: superrápido y supereficiente para una increíble duración de la batería durante todo el día.
+    
+    El Apple iPhone 14 Pro Max es el iPhone más grande y poderoso de la serie 14. Potenciado por el nuevo procesador Apple A16 Bionic, el iPhone 14 Pro Max cuenta con una pantalla OLED LTPO de 6.7 pulgadas con soporte always-on y un nuevo notch en forma de píldora que se integra a iOS con las notificaciones. La cámara trasera es triple y la cámara principal del conjunto es de 48MP con estabilización por sensor, sumando cámaras ultrawide y telefoto de 12MP. El iPhone 14 Pro Max soporta carga inalámbrica, resiste al polvo y agua, tiene parlantes stereo, soporta el sistema de mensajería de emergencia vía satélite de Apple y corre iOS 16.`,
 };
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
@@ -35,9 +40,7 @@ function classNames(...classes) {
 }
 
 const Producto = (props) => {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-  //const [selectedSize, setSelectedSize] = useState(product.sizes[2])
-
+  
   const [producto, setProducto] = useState([]);
   const [imagen, setImagen] = useState([]);
   const url = `https://dummyjson.com/products/${props.params.id}`;
@@ -130,10 +133,12 @@ const Producto = (props) => {
             <p className="text-3xl tracking-tight text-gray-900">
               $ {producto.price}.00 
             </p>
+            <p className="text-2xl tracking-tight text-cyan-800">
+              Stock  {producto.stock} unidades 
+            </p>
 
             {/* Reviews */}
             <div className="mt-6">
-              <h3 className="sr-only">Vistas</h3>
               <div className="flex items-center">
                 <div className="flex items-center">
                   {[0, 1, 2, 3, 4].map((rating) => (
@@ -187,7 +192,7 @@ const Producto = (props) => {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-sm font-medium text-gray-900">Details</h2>
+              <h2 className="text-sm font-medium text-gray-900">Detalles</h2>
 
               <div className="mt-4 space-y-6">
                 <p className="text-sm text-gray-600">{product.details}</p>
