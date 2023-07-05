@@ -53,7 +53,7 @@ export default function Home() {
         <h1 className='text-4xl mt-4 text-center font-light'>Nuestros Productos</h1>
         <div className='mt-4 grid grid-cols-1 md:grid-cols-3 gap-4'>
           {/* se imprime por medio de map los productos con el componente Product con los datos de la api  */}
-          {characters.map(characters => <Product product={characters} />)}
+          {characters.map((characters, index) => <Product key={index} product={characters} />)}
         </div>
       </section>
       <Maps />
