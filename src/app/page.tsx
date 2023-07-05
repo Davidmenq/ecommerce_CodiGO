@@ -44,10 +44,10 @@ export default function Home() {
   return (
     <main className="flex w-full flex-col items-center justify-between ">
       <Hero
-        titulo="Technology Store"
-        parrafo="Descubre lo último en tecnología y encuentra los mejores productos para llevar tu experiencia al siguiente nivel. ¡Bienvenido a nuestra tienda de productos tecnológicos!"
+        titulo="Technology" 
+        parrafo="Somos una empresa líder en ventas de productos tecnologícos"
         rutaimg={"/imagenes/Hero8.png"}
-        button={<BtnForm label="Ver productos" labelColor="white" />}
+        button={<BtnForm label="Ver productos" labelColor="white"/>}
       />
       <section className='container my-5 px-4'>
         <h1 className='text-4xl mt-4 text-center font-light'>Nuestros Productos</h1>
