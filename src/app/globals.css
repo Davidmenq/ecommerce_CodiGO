@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Effect for line horizontal in the NavBar  */
 
 @keyframes line-animation {

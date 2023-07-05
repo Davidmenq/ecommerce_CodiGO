@@ -36,7 +36,7 @@ const Product = ({ product }) => {
     };
 
     return (
-        <div className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl'>
+        <div className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl text-center'>
             <img className='mx-auto w-[350px] h-[200px] object-contain' src={product.images[0]} alt="" />
             <div className='flex flex-col mt-4'>
                 <div className='flex items-center flex-col text-[26px] w-full text-center'>

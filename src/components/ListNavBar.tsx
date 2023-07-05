@@ -4,9 +4,10 @@ import Link from "next/link";
 interface Props {
   nameSection: string;
   onClickReturn: () => void;
+  url: string;
 }
 
-const ListNavBar: FC<Props> = ({ nameSection, onClickReturn }) => {
+const ListNavBar: FC<Props> = ({ nameSection, onClickReturn, url }) => {
   /* UseState -> used for am amimation of line in the section list*/
 
   const [hovered, setHovered] = useState(false);
@@ -16,7 +17,7 @@ const ListNavBar: FC<Props> = ({ nameSection, onClickReturn }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <Link href="#" onClick={onClickReturn}>
+      <Link href={url} onClick={onClickReturn}>
         {nameSection}
       </Link>
       {hovered && (

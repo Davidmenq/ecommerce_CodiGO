@@ -34,7 +34,7 @@ const Login = () => {
                         <input type="checkbox" className="" />
                         <h3 className='m-1 text-[#50C2D8] font-light'>Recordar</h3>
                     </div>
-                    <button className='text-white'></button>
+                    
                     <BtnForm label={'Iniciar Sesión'} labelColor={'white'}></BtnForm>
                 </form>
                 <div className='flex justify-center p-6 '>
