@@ -12,7 +12,7 @@ const ListNavBar: FC<Props> = ({ nameSection, onClickReturn }) => {
   const [hovered, setHovered] = useState(false);
   return (
     <li
-      className="text-xl uppercase text-white py-4 px-6 text-center border-b-2 lg:border-b-0  hover:bg-[#20C7F0]  border-[#20C7F0] lg:hover:text-[#69C7F0] lg:hover:bg-transparent lg:relative"
+      className="text-xl uppercase text-white py-4 px-6 text-center border-b-2 lg:border-b-0  hover:bg-[#20C7F0]  border-[#20C7F0] lg:hover:text-[#69C7F0] lg:hover:bg-transparent lg:relative font-extralight"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

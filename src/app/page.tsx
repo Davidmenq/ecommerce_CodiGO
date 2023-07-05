@@ -1,8 +1,6 @@
 "use client"
 import Maps from '@/components/Maps';
 import Product from '@/components/Product';
-/* import data from '@/app/data/data.json'; */
-import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react'
 import BtnForm from "@/components/BtnForm";
 import CardInstructivo from "@/components/CardInstructivo";
@@ -52,9 +50,9 @@ export default function Home() {
       <CardInstructivo />
       <section className='container w-[100vw] mt-5'>
         <h1 className='text-4xl mt-4 text-center font-light'>Nuestros Productos</h1>
-        <div className='mt-4 grid grid-cols-1 md:grid-cols-3 gap-4'>
+        <div className='mt-4 grid grid-cols-1 md:grid-cols-5 gap-4'>
           {/* se imprime por medio de map los productos con el componente Product con los datos de la api  */}
-          {characters.map(characters => <Product product={characters} />)}
+          {characters.map((characters,index) => <Product key={index} product={characters} />)}
         </div>
       </section>
       <Maps />
