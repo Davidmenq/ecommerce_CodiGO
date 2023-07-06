@@ -6,7 +6,6 @@ import { StarIcon } from '@heroicons/react/20/solid';
 const product = {
   description:
     `Pantalla más brillante Super Retina XDR de 6.1" con función Siempre encendida, que mantiene su información de un vistazo.
-
     Dynamic Island, una nueva forma mágica de interactuar con el iPhone.`,
   highlights: [
     'Dimensiones 160,7 x 77,6 x 7,9 mm (6,33 x 3,06 x 0,31 pulgadas)',
@@ -22,15 +21,10 @@ const product = {
   ],
   details:
     `Pantalla más brillante Super Retina XDR de 6.1" con función Siempre encendida, que mantiene su información de un vistazo.
-
     Dynamic Island, una nueva forma mágica de interactuar con el iPhone.
-    
     SOS de emergencia vía satélite y Crash Detection: funciones innovadoras diseñadas para salvar vidas.
-    
     Cámara principal de 48MP con un sensor avanzado de cuatro píxeles para hasta 4 veces la resolución.
-    
     Chip A16 Bionic: superrápido y supereficiente para una increíble duración de la batería durante todo el día.
-    
     El Apple iPhone 14 Pro Max es el iPhone más grande y poderoso de la serie 14. Potenciado por el nuevo procesador Apple A16 Bionic, el iPhone 14 Pro Max cuenta con una pantalla OLED LTPO de 6.7 pulgadas con soporte always-on y un nuevo notch en forma de píldora que se integra a iOS con las notificaciones. La cámara trasera es triple y la cámara principal del conjunto es de 48MP con estabilización por sensor, sumando cámaras ultrawide y telefoto de 12MP. El iPhone 14 Pro Max soporta carga inalámbrica, resiste al polvo y agua, tiene parlantes stereo, soporta el sistema de mensajería de emergencia vía satélite de Apple y corre iOS 16.`,
 };
 const reviews = { href: "#", average: 4, totalCount: 117 };
