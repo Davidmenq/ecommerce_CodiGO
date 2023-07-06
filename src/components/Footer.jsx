@@ -4,7 +4,8 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='flex flex-col bg-[#0F2027] sm:grid sm:grid-cols-2 sm:pl-10'>
+    <div className='flex flex-col  sm:grid sm:grid-cols-2 sm:pl-10
+    bg-gradient-to-t from-[#0F2027] from-5%  via-[#2C5364] via-70% to-[#0F2027] to-95%'>
         <div className='flex content-center mt-4 mb-20'>
             <AcordeonTailwind />
         </div>
