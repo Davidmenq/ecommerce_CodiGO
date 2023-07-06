@@ -29,11 +29,11 @@ const Productos = () => {
     }, [])
   
     return (
-    <div className='w-auto'>
-        <h1 className='flex justify-center'>Productos</h1>
-        <div className="flex flex-wrap justify-center align-middle">
+    <div className='sm:px-30 md:px-40 lg:px-50'>
+        <h1 className='flex justify-center items-center text-2xl h-14'><u>Productos</u></h1>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {characters.map((item,index) => (
-            <Card key={item.id} id={item.id} title={item.title} description={item.description} image={item.images[0]}/>
+            <Card key={item.id} id={item.id} title={item.title} price={item.price} image={item.images[0]}/>
           ))}
         </div>  
     </div>
