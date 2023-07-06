@@ -38,14 +38,14 @@ const Product = ({ product }) => {
     return (
         <div className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl text-center'>
             <img className='mx-auto w-[350px] h-[200px] object-contain' src={product.images[0]} alt="" />
-            <div className='mt-4 px-6'>
-                <div className='flex items-center flex-col text-[26px]'>
+            <div className='flex flex-col mt-4'>
+                <div className='flex items-center flex-col text-[26px] w-full text-center'>
                     <h1>{product.title}</h1>
                     <h3 className='font-light'>$/{product.price}</h3>
                 </div>
                 {/* boton que ejecutará la funcián de agregar productos al carrito */}
                 <button
-                    className='bg-[#50C2D8] text-white py-4 px-10 mt-4 block mx-auto hover:bg-white hover:text-[#50C2D8] rounded-2xl border-[#50C2D8] border-2 ease-in-out duration-300'
+                    className='bg-[#50C2D8] text-white py-4 my-auto px-10 mt-4 block mx-auto hover:bg-white hover:text-[#50C2D8] rounded-2xl border-[#50C2D8] border-2 ease-in-out duration-300'
                     onClick={addItemsToCart}>Agregar</button>
             </div>
 

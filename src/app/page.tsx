@@ -1,8 +1,6 @@
 "use client"
 import Maps from '@/components/Maps';
 import Product from '@/components/Product';
-/* import data from '@/app/data/data.json'; */
-import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react'
 import BtnForm from "@/components/BtnForm";
 import Hero from "@/components/Hero";
