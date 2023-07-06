@@ -18,7 +18,7 @@ const Productos = () => {
             .then(response => response.json())
             //.then(data => console.log(data.products))
             .then(data => {
-                console.log(data.products)
+                //console.log(data.products)
                 setCharacters(data.products.filter(item=>item.category===category1 || item.category===category2 || item.category===category3 || item.category===category4))
             })
             .catch(err => console.log(err))

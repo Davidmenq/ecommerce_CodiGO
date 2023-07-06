@@ -27,23 +27,37 @@ const product = {
     Chip A16 Bionic: superrápido y supereficiente para una increíble duración de la batería durante todo el día.
     El Apple iPhone 14 Pro Max es el iPhone más grande y poderoso de la serie 14. Potenciado por el nuevo procesador Apple A16 Bionic, el iPhone 14 Pro Max cuenta con una pantalla OLED LTPO de 6.7 pulgadas con soporte always-on y un nuevo notch en forma de píldora que se integra a iOS con las notificaciones. La cámara trasera es triple y la cámara principal del conjunto es de 48MP con estabilización por sensor, sumando cámaras ultrawide y telefoto de 12MP. El iPhone 14 Pro Max soporta carga inalámbrica, resiste al polvo y agua, tiene parlantes stereo, soporta el sistema de mensajería de emergencia vía satélite de Apple y corre iOS 16.`,
 };
-const reviews = { href: "#", average: 4, totalCount: 117 };
+const reviews = { totalCount: 117 };
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Producto = (props) => {
-  
-  const [producto, setProducto] = useState([]);
+interface useStateProductos { 
+  brand: string,
+  category: string,
+  description: string,
+  discountPercentage: number,
+  id:number,
+  images:string[],
+  price: number,
+  rating:number,
+  stock:number,
+  thumbnail:string,
+  title:string,
+}
+
+const Producto = (props:any) => {
+
+  const [producto, setProducto] = useState<useStateProductos>([]);
   const [imagen, setImagen] = useState([]);
   const url = `https://dummyjson.com/products/${props.params.id}`;
   const cargarDatos = async (urlApi: string) => {
     try {
       const respuesta = await fetch(urlApi);
       const datos = await respuesta.json();
-      console.log(datos.images);
-      console.log(datos);
+      //console.log(datos.images);
+      //console.log(datos);
       setProducto(datos);
       setImagen(datos.images);
     } catch (error) {
@@ -53,7 +67,7 @@ const Producto = (props) => {
 
   useEffect(() => {
     cargarDatos(url);
-    console.log(props);
+    //console.log(props);
   }, []);
 
   return (
@@ -67,29 +81,32 @@ const Producto = (props) => {
             role="list"
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
             >
-              <li key='1'>
+              <li>
                 <div className="flex items-center">
                   <a
                     href='/productos'
                     className="mr-2 text-sm font-medium text-gray-900"
                     >
+                    Productos
+                    {/*puedo colocar un nodo anterior aquí*/}
+                  </a>
+                 <span className='text-2xl'>›</span> 
+                </div>
+              </li>
+              <li>
+                <div className="flex items-center">
+                  <a
+                    href='/productos'
+                    className="mr-2 text-sm font-medium text-gray-700"
+                    >
                     {producto.category}
                   </a>
-                  <svg
-                    width={16}
-                    height={20}
-                    viewBox="0 0 16 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    className="h-5 w-4 text-gray-300"
-                    >
-                    <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-                  </svg>
+                 <span className='text-2xl text-gray-700'>›</span> 
                 </div>
               </li>
               <li className="text-sm">
                 <a
-                  href='/#'
+                  href=''
                   className="font-medium text-gray-500 hover:text-gray-600"
                 >
                   {producto.title}
@@ -138,7 +155,7 @@ const Producto = (props) => {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        reviews.average > rating
+                        producto.rating > rating
                           ? "text-gray-900"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0"
