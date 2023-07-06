@@ -58,9 +58,8 @@ const Producto = (props) => {
 
   return (
     <div className="bg-white">
-      <div>
-        Detalles de Producto: {producto.title} / {producto.category} / {producto.description}
-          
+      <div className='p-2 sm:px-6'>
+        <strong>Detalles de Producto:</strong> {producto.title} / {producto.category} / {producto.description}
       </div>
       <div className="pt-6">
         <nav>
@@ -154,7 +153,7 @@ const Producto = (props) => {
             <form className="mt-10">
               <button
                 type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-[#007991] px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                 Agregar al carrito
               </button>
@@ -172,7 +171,7 @@ const Producto = (props) => {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
+              <h3 className="text-sm font-medium text-gray-900">Características Principales</h3>
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">

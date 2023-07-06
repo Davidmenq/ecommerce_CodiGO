@@ -18,7 +18,9 @@ const AcordeonTailwind = () => {
     <div className="flex flex-col h-auto w-auto justify-center items-center">
       {data.map((item, i) => (
           <div key={i} className=" px-5 py-2.5 bg-[#0F2027]">
-            <div className="text-white flex justify-between items-center border-b-2 cursor-pointer" onClick={()=>toggle(i)}>
+            <div className="text-white flex justify-between items-center border-b-2 cursor-pointer" 
+              onClick={()=>toggle(i)}
+              >
               <h2>{item.tema}</h2>
               <span>{selected === i ?  '-' : '+'}</span>
             </div>
@@ -50,10 +52,7 @@ const data = [
   {
     tema: "Contactanos",
     texto:
-      `Contáctanos y te ayudaremos con nuestros expertos en las consultas o dudas que tengas a través de nuestros canales de atención.
-      Servicio al cliente: (01) 999-999
-      email: servicioalcliente@tienda.com
-      Servicio Técnico: (01) 999-999`,
+      "Contáctanos y te ayudaremos con nuestros expertos en las consultas o dudas que tengas a través de nuestros canales de atención. ➤➤➤📞📱📲 Servicio al cliente: (01)999-999. ➤➤➤📧📧📧 email: servicioalcliente@tienda.com ➤➤➤📱🔋💻 Servicio Técnico: (01) 999-999",
   },
 
 ];

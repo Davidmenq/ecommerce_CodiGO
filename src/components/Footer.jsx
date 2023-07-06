@@ -4,11 +4,11 @@ import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <div className='flex flex-col bg-[#0F2027]'>
-        <div className='mt-4 mb-20'>
+    <div className='flex flex-col bg-[#0F2027] sm:grid sm:grid-cols-2 sm:pl-10'>
+        <div className='flex content-center mt-4 mb-20'>
             <AcordeonTailwind />
         </div>
-        <div className='w-auto flex-col'>
+        <div className='flex w-auto flex-col sm:justify-center sm:items-center sm:content-center lg:pl-20'>
             <div className='flex flex-row justify-center'>
                 <Link href='https://www.instagram.com' target="_blank" rel="noopener noreferrer">
                     <Image src='/imagenes/instagram.svg' href='https://www.youtube.com' width={20} height={20} alt="link de Instagram" className="mx-2 cursor-pointer h-10 w-10"/>
