@@ -42,12 +42,12 @@ const data = [
   {
     tema: "Nuestra Empresa",
     texto:
-      "Somos una empresa con amplia trayectoria en el rubro de tecnología, ofrecemos una gama completa de PC y tablets, monitores, accesorios, smartphones, soluciones de smart home y smart collaboration, realidad virtual y aumentada (AR/VR), Internet de las cosas (IoT) comercial, software, servicios y soluciones de centro de datos de infraestructura inteligente en todo el mundo.",
+      "Somos una empresa con amplia trayectoria en el rubro de tecnología. Nuestros 25 años de experiencia nos permiten conocer tus necesidades, para brindarte soluciones a tu medida, que mejoren y simplifiquen las experiencias de tus clientes.",
   },
   {
     tema: "Productos",
     texto:
-      "Somos una empresa con amplia trayectoria en el rubro de tecnología, ofrecemos una gama completa de PC y tablets, monitores, accesorios, smartphones, soluciones de smart home y smart collaboration, realidad virtual y aumentada (AR/VR), Internet de las cosas (IoT) comercial, software, servicios y soluciones de centro de datos de infraestructura inteligente en todo el mundo.",
+      "Aprovechamos las nuevas tecnologías para encontrar soluciones duraderas para las necesidades actuales y futuras, y desarrollamos continuamente nuevos soluciones. Ofrecemos una gama completa de PC y tablets, monitores, accesorios, smartphones, soluciones de smart home y smart collaboration, realidad virtual y aumentada (AR/VR), Internet de las cosas (IoT) comercial, software, servicios y soluciones de centro de datos de infraestructura inteligente en todo el mundo.",
   },
   {
     tema: "Contactanos",
