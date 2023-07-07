@@ -19,7 +19,7 @@ export default function RootLayout({  children,}: { children: React.ReactNode })
   return (
     <html lang="en">
       <RecoilRoot>        
-      <body className={inter.className}>
+      <body className=''>
         <Toaster position='bottom-center'/>
         <Header/>  
           <>
