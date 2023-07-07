@@ -3,13 +3,30 @@ import React from 'react'
 import { useRecoilState } from 'recoil';
 import { cartState } from "../atoms/cartState"
 import toast from 'react-hot-toast';
+import { useEffect, useState } from 'react';
 
-const Product = ({ product }) => {
+const Product = (product) => {
+    const [cartItem, setCartItem] = useRecoilState(cartState);
+
+    useEffect(() => {
+        // Obtener los datos del carrito guardados previamente
+        const savedCart = localStorage.getItem('cart');
+        if (savedCart) {
+            setCartItem(JSON.parse(savedCart));
+        }
+    }, []);
+
+    useEffect(() => {
+        // Guardar el estado del carrito en el almacenamiento local cada vez que cambie
+        localStorage.setItem('cart', JSON.stringify(cartItem));
+    }, [cartItem]);
+
+
 
     /* cartItem almacena el estado del carrito
     mientras que serCartItem actualiza este estado
     y cartState proviene de un atomo que sera el estado inicial  */
-    const [cartItem, setCartItem] = useRecoilState(cartState)
+    
 
     /* funcion para agregar productos al carrito */
     const addItemsToCart = () => {
@@ -35,9 +52,23 @@ const Product = ({ product }) => {
         toast.success(`${product.title} Agregado al Carrito`);
     };
 
+
+
     return (
-        <div className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl text-center'>
-            <img className='mx-auto w-[350px] h-[200px] object-contain' src={product.images[0]} alt="" />
+        <div key={product.id} className='bg-[#fff] pt-6 pb-4 shadow-2xl rounded-xl text-center'>
+
+            <div
+                className="relative overflow-hidden bg-cover bg-no-repeat"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+            >
+                <img className="mx-auto w-[350px] h-[200px] object-contain" src={product.images?.[0]} alt="" />
+                <a href={`${product.id}`}>
+                    <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] 
+                bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100">
+                    </div>
+                </a>
+            </div>
             <div className='flex flex-col mt-4'>
                 <div className='flex items-center flex-col text-[26px] w-full text-center'>
                     <h1>{product.title}</h1>

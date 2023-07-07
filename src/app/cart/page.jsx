@@ -8,7 +8,8 @@ import { GiShoppingCart } from 'react-icons/gi'
 const Cart = () => {
     
 
-    const [cartItem, setCartItem] = useRecoilState(cartState);     
+    const [cartItem, setCartItem] = useRecoilState(cartState); 
+    /* metodo para calcular el total del carrito */    
     const totalPrice = () => {        
         let total = 0
         cartItem.forEach(item => total += (item.price * item.quantity))
@@ -19,15 +20,18 @@ const Cart = () => {
     }
 
     return (
-        <div>
-            <div className='container mx-auto p-10'>
+        <div className='min-h-screen'>
+            <div className='container mx-auto  p-10'>
+                {/* se usan operadores ternarios para probar si el carrito es mayor a 0 */}
                 {cartItem.length <= 0 ? 
                 <div className='flex flex-col gap-10'>
                     <h1 className='text-center text-4xl mt-32 font-normal'>Carro Vacio</h1>
-                    <GiShoppingCart className='mx-auto h-[12vh] w-[12vw]' />
+                    <GiShoppingCart className='mx-auto h-[12vh] w-[12vw] lg:h-[24vh] lg:w-[24vw]' />
                 </div> 
                 : cartItem.map(item => <CartList key={item.id} data={item} />)}
-
+                
+                {/* se usa operador cortocircuito */}
+                {/* && ejectará lo de la derecha si lo de la izquierda es verdadero */}
                 {cartItem.length > 0 && (<div>
                     <div className='flex flex-col lg:w-[20vw] mx-auto p-10 gap-5 text-center items-center rounded-2xl'>
                         <h2 className='text-[3vh] font-light'>Total: $/{totalPrice()}</h2>

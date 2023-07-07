@@ -25,12 +25,12 @@ export default function Home() {
     fetchCharacters(initialUrl);
   }, [])
 
-  const fetchCharacters = (url: any) => {
+  const fetchCharacters = (url) => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
         /* filtro por categorias smartphone y laptops de la api */
-        const products = data.products.filter((product: { category: string }) => category1.includes(product.category) || category2.includes(product.category));
+        const products = data.products.filter(product => category1.includes(product.category) || category2.includes(product.category));
         console.log(products)
         setCharacters(products)
       })
@@ -48,10 +48,11 @@ export default function Home() {
         button={<BtnForm label="Ver productos" labelColor="white"/>}
       />
       <section className='container my-5 px-4'>
-        <h1 className='text-4xl mt-4 text-center font-light'>Nuestros Productos</h1>
+        <h1 className='text-4xl mt-4 text-center font-light'>Productos Destacados</h1>
         <div className='mt-4 grid grid-cols-1 md:grid-cols-3 gap-4'>
           {/* se imprime por medio de map los productos con el componente Product con los datos de la api  */}
-          {characters.map((characters,index) => <Product key={index} product={characters} />)}
+          {characters.map((product,index) => 
+          <Product key={index} id={product.id} title={product.title} price={product.price} images={product.images} />)}
         </div>
       </section>
       <SectionInstructions />
