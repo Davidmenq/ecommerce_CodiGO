@@ -38,22 +38,22 @@ const product = {
 };
 const reviews = { totalCount: 117 };
 
-function classNames(...classes) {
+function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface useStateProductos {
-  brand: string,
-  category: string,
-  description: string,
-  discountPercentage: number,
-  id: number,
-  images: string[],
-  price: number,
-  rating: number,
-  stock: number,
-  thumbnail: string,
-  title: string,
+interface tipoProducto {
+  brand?: string,
+  category?: string,
+  description?: string,
+  discountPercentage?: number,
+  id?: number,
+  images?: string[],
+  price?: number,
+  rating?: number,
+  stock?: number,
+  thumbnail?: string,
+  title?: string,
 }
 
 
@@ -61,7 +61,7 @@ interface useStateProductos {
 
 const Producto = (props: any) => {
 
-  const [producto, setProducto] = useState<useStateProductos>([]);  
+  const [producto, setProducto] = useState<tipoProducto>({});  
   const [imagen, setImagen] = useState([]);
   const url = `https://dummyjson.com/products/${props.params.id}`;
   const cargarDatos = async (urlApi: string) => {
@@ -167,11 +167,11 @@ const Producto = (props: any) => {
             <div className="mt-6">
               <div className="flex items-center">
                 <div className="flex items-center">
-                  {[0, 1, 2, 3, 4].map((rating) => (
+                  {[0, 1, 2, 3, 4].map((estrellas,index) => (
                     <StarIcon
-                      key={rating}
+                      key={index}
                       className={classNames(
-                        producto.rating > rating
+                        4 > estrellas
                           ? "text-gray-900"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0"

@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
 
-function classNames(...classes) {
+function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
 }
 
