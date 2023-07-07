@@ -13,7 +13,7 @@ const Productos = () => {
     const category3 = 'automotive';
     const category4 = 'motorcycle';
 
-    const fetchCharacters = (url:string) =>{
+    const fetchCharacters = (url) =>{
         fetch(url)
             .then(response => response.json())
             //.then(data => console.log(data.products))
@@ -33,7 +33,7 @@ const Productos = () => {
         <h1 className='flex justify-center items-center text-2xl h-14'><u>Productos</u></h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {characters.map((item,index) => (
-            <Card key={item.id} id={item.id} title={item.title} price={item.price} image={item.images[0]}/>
+            <Card key={index} id={item.id} title={item.title} price={item.price} images={item.images[0]}/>
           ))}
         </div>  
     </div>

@@ -3,6 +3,10 @@
 import { useState, useEffect } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid';
 
+import Product from '@/components/Product';
+
+
+
 const product = {
   description:
     `Pantalla más brillante Super Retina XDR de 6.1" con función Siempre encendida, que mantiene su información de un vistazo.
@@ -33,23 +37,26 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface useStateProductos { 
+interface useStateProductos {
   brand: string,
   category: string,
   description: string,
   discountPercentage: number,
-  id:number,
-  images:string[],
+  id: number,
+  images: string[],
   price: number,
-  rating:number,
-  stock:number,
-  thumbnail:string,
-  title:string,
+  rating: number,
+  stock: number,
+  thumbnail: string,
+  title: string,
 }
 
-const Producto = (props:any) => {
 
-  const [producto, setProducto] = useState<useStateProductos>([]);
+
+
+const Producto = (props: any) => {
+
+  const [producto, setProducto] = useState<useStateProductos>([]);  
   const [imagen, setImagen] = useState([]);
   const url = `https://dummyjson.com/products/${props.params.id}`;
   const cargarDatos = async (urlApi: string) => {
@@ -70,6 +77,9 @@ const Producto = (props:any) => {
     //console.log(props);
   }, []);
 
+  
+
+
   return (
     <div className="bg-white">
       <div className='p-2 sm:px-6'>
@@ -80,55 +90,55 @@ const Producto = (props:any) => {
           <ol
             role="list"
             className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-            >
-              <li>
-                <div className="flex items-center">
-                  <a
-                    href='/productos'
-                    className="mr-2 text-sm font-medium text-gray-900"
-                    >
-                    Productos
-                    {/*puedo colocar un nodo anterior aquí*/}
-                  </a>
-                 <span className='text-2xl'>›</span> 
-                </div>
-              </li>
-              <li>
-                <div className="flex items-center">
-                  <a
-                    href='/productos'
-                    className="mr-2 text-sm font-medium text-gray-700"
-                    >
-                    {producto.category}
-                  </a>
-                 <span className='text-2xl text-gray-700'>›</span> 
-                </div>
-              </li>
-              <li className="text-sm">
+          >
+            <li>
+              <div className="flex items-center">
                 <a
-                  href=''
-                  className="font-medium text-gray-500 hover:text-gray-600"
+                  href='/productos'
+                  className="mr-2 text-sm font-medium text-gray-900"
                 >
-                  {producto.title}
+                  Productos
+                  {/*puedo colocar un nodo anterior aquí*/}
                 </a>
-              </li>
+                <span className='text-2xl'>›</span>
+              </div>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <a
+                  href='/productos'
+                  className="mr-2 text-sm font-medium text-gray-700"
+                >
+                  {producto.category}
+                </a>
+                <span className='text-2xl text-gray-700'>›</span>
+              </div>
+            </li>
+            <li className="text-sm">
+              <a
+                href=''
+                className="font-medium text-gray-500 hover:text-gray-600"
+              >
+                {producto.title}
+              </a>
+            </li>
           </ol>
         </nav>
 
         {/* Image gallery */}
-          <div className="grid grid-cols-2  mx-2 mt-6 gap-2 rounded-2xl 
+        <div className="grid grid-cols-2  mx-2 mt-6 gap-2 rounded-2xl 
                           sm:grid-cols-4 sm:px-6 sm:gap-x-6 sm:gap-y-6 
                           lg:grid lg:max-w-7xl lg:gap-x-8 lg:gap-y-2 lg:px-8
                           lg:overflow-hidden">
-            {imagen.map((item,index) => (
-              <img
-                key={index}
-                src={item}
-                alt={item}
-                className="h-full w-full object-cover object-center rounded-lg"
-              />
-            ))}
-          </div>
+          {imagen.map((item, index) => (
+            <img
+              key={index}
+              src={item}
+              alt={item}
+              className="h-full w-full object-cover object-center rounded-lg"
+            />
+          ))}
+        </div>
 
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
@@ -141,10 +151,10 @@ const Producto = (props:any) => {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <p className="text-3xl tracking-tight text-gray-900">
-              $ {producto.price}.00 
+              $ {producto.price}.00
             </p>
             <p className="text-2xl tracking-tight text-cyan-800">
-              Stock  {producto.stock} unidades 
+              Stock  {producto.stock} unidades
             </p>
 
             {/* Reviews */}
@@ -163,20 +173,12 @@ const Producto = (props:any) => {
                     />
                   ))}
                 </div>
-                    {reviews.totalCount} Vistas
+                {reviews.totalCount} Vistas
               </div>
             </div>
 
-            <form className="mt-10">
-              <button
-                type="submit"
-                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-[#007991] 
-                px-8 py-3 text-base font-medium text-white hover:bg-[#3d94a5] focus:outline-none focus:ring-2 
-                focus:ring-[#3d94a5] focus:ring-offset-2"
-                >
-                Agregar al carrito
-              </button>
-            </form>
+            
+            <Product key={producto.id} id={producto.id} title={producto.title} price={producto.price} images={producto.images} />
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
