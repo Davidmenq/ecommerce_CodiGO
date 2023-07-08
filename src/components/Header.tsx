@@ -105,7 +105,10 @@ const Header = () => {
                 </button>
               </div>
               <Link href={"/"}>
-                <img src="/imagenes/Prueba2.png" alt="Logo" width={60} />
+                <h1 className="hidden lg:block text-2xl text-[#50C2D8] font-bold">
+                  Techn<span className="text-[#8AD2E1] font-bold">ology</span>
+                </h1>
+                <img src="/imagenes/Prueba2.png" alt="Logo" width={60} className="lg:hidden"/>
               </Link>
               <div className="flex space-x-4 lg:hidden">{renderIconsDer()}</div>
             </div>
