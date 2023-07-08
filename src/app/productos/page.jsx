@@ -33,7 +33,7 @@ const Productos = () => {
         <h1 className='flex justify-center items-center text-2xl h-14'><u>Productos</u></h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {characters.map((item,index) => (
-            <Card key={index} id={item.id} title={item.title} price={item.price} images={item.images[0]}/>
+            <Card key={index} id={item.id} title={item.title} price={item.price} images={item.images}/>
           ))}
         </div>  
     </div>

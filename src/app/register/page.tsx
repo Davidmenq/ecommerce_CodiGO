@@ -31,7 +31,7 @@ const Register = () => {
                     <InputDatos contenido={'Usuario'} tipo={'input'} placeholder={''} labelColor={'#50C2D8'}></InputDatos>
                     <InputDatos contenido={'Contraseña'} tipo={'password'} placeholder={''} labelColor={'#50C2D8'}></InputDatos>
                     <InputDatos contenido={'Repetir Contraseña'} tipo={'password'} placeholder={''} labelColor={'#50C2D8'}></InputDatos>
-                    <BtnForm label={'Finalizar'} labelColor={'white'}></BtnForm>
+                    <BtnForm label={'Finalizar'} labelColor={'white'} ruta={''}></BtnForm>
                 </form>
                 <div className='flex flex-grow justify-center p-4'>
                     <p className='text-black'>¿Ya tienes una cuenta?</p>
