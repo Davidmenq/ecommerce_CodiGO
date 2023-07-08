@@ -189,7 +189,7 @@ export default function Example() {
                 </div>
                 <Switch.Label className="text-sm leading-6 text-gray-600">
                   Al seleccionar esto, usted manifiesta su acuerdo con nuestras{" "}
-                  <a href="#" className="font-semibold text-[#3d94a5]">
+                  <a href="/#" className="font-semibold text-[#3d94a5]">
                     políticas&nbsp;de privacidad
                   </a>
                   .
@@ -217,9 +217,8 @@ export default function Example() {
 
 
 /*
-  This example requires some changes to your config:
+  requiere los siguientes cambios en la configuracion:
   
-  ```
   // tailwind.config.js
   module.exports = {
     // ...
