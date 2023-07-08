@@ -1,7 +1,9 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 
 const page = () => {
+
   return (
     <section className='flex flex-col mx-4 my-4 gap-10'>
 
@@ -62,7 +64,6 @@ const page = () => {
                 oportunidades únicas para ti y tus clientes".
           </div>
         </div>
-
       </section>
 
       <section className="bg-white">

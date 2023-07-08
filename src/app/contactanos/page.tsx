@@ -9,7 +9,13 @@ function classNames(...classes:any) {
 }
 
 export default function Example() {
+  
   const [agreed, setAgreed] = useState(false);
+
+  const handleClick = (event:any) => {
+    event.preventDefault();
+    console.log("mensaje de contacto enviado")
+  };
 
   return (
     <section>
@@ -19,7 +25,6 @@ export default function Example() {
               bg-gradient-to-tr from-[#27dddd] via-[#fff] to-[#5cc7f5] opacity-50 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
           />
         </div>
-
         <div className="isolate px-6 py-24 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -188,11 +193,9 @@ export default function Example() {
                   </Switch>
                 </div>
                 <Switch.Label className="text-sm leading-6 text-gray-600">
-                  Al seleccionar esto, usted manifiesta su acuerdo con nuestras{" "}
-                  <a href="/#" className="font-semibold text-[#3d94a5]">
+                  Al seleccionar esto, usted manifiesta su acuerdo con nuestras políticas de privacidad{/*" "                   <a href="/#" className="font-semibold text-[#3d94a5]">
                     políticas&nbsp;de privacidad
-                  </a>
-                  .
+                  </a> .*/}
                 </Switch.Label>
               </Switch.Group>
             </div>
@@ -202,6 +205,7 @@ export default function Example() {
                 className="block w-full rounded-md bg-[#007991] px-3.5 py-2.5 text-center text-sm font-semibold 
                 text-white shadow-sm hover:bg-[#3d94a5] focus-visible:outline focus-visible:outline-2 
                 focus-visible:outline-offset-2 focus-visible:outline-[#3d94a5]"
+                onClick={handleClick}
               >
                 Hablemos
               </button>
@@ -209,8 +213,6 @@ export default function Example() {
           </form>
         </div>
       </section>
-
-
     </section>
   );
 }
