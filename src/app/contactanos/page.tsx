@@ -183,8 +183,7 @@ export default function Example() {
                   >
                     <span className="sr-only">Agree to policies</span>
                     <span
-                      aria-hidden="true"
-                      className={classNames(
+                        className={classNames(
                         agreed ? "translate-x-3.5" : "translate-x-0",
                         `h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 
                         transition duration-200 ease-in-out`
@@ -193,9 +192,7 @@ export default function Example() {
                   </Switch>
                 </div>
                 <Switch.Label className="text-sm leading-6 text-gray-600">
-                  Al seleccionar esto, usted manifiesta su acuerdo con nuestras políticas de privacidad{/*" "                   <a href="/#" className="font-semibold text-[#3d94a5]">
-                    políticas&nbsp;de privacidad
-                  </a> .*/}
+                  Al seleccionar esto, usted manifiesta su acuerdo con nuestras políticas de privacidad
                 </Switch.Label>
               </Switch.Group>
             </div>

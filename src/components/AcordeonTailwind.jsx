@@ -22,7 +22,7 @@ const AcordeonTailwind = () => {
               onClick={()=>toggle(i)}
               >
               <h2>{item.tema}</h2>
-              <span>{selected === i ?  '⮝' : '⮟'}</span>
+              <span>{selected === i ?  '-' : '+'}</span>
             </div>
             <div className={selected === i 
               ?  'text-white h-auto max-h-fit transition-opacity ' 
