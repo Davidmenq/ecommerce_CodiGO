@@ -10,7 +10,7 @@ const ImageForm: FC<Props> = ({ ruta }) => {
     return (
         <div className="p-8">            
             <Image
-                className="flex m-auto"
+                className="flex m-auto w-auto h-auto"
                 src={ruta}
                 alt="Imagen principal del formulario"
                 width={220}
