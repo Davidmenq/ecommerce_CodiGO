@@ -35,7 +35,7 @@ const RecoverPassword = () => {
                             <h3 className='m-1 text-[#50C2D8] font-light'>Recordar</h3>
                         </div>
                         <button className='text-white'></button>
-                        <BtnForm label={'Enviar'} labelColor={'white'}></BtnForm>
+                        <BtnForm label={'Enviar'} labelColor={'white'} ruta={''}></BtnForm>
                     </form>
                     <div className='flex flex-grow justify-center p-4'>
                         <p className='text-black'>¿Recuperaste tu cuenta?</p>

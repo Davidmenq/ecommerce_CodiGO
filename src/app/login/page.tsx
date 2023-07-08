@@ -35,7 +35,7 @@ const Login = () => {
                         <h3 className='m-1 text-[#50C2D8] font-light'>Recordar</h3>
                     </div>
                     
-                    <BtnForm label={'Iniciar Sesión'} labelColor={'white'}></BtnForm>
+                    <BtnForm label={'Iniciar Sesión'} labelColor={'white'} ruta={''}></BtnForm>
                 </form>
                 <div className='flex justify-center p-6 '>
                     <Links ruta={'/recoverPassword'} label={'¿Olvidaste tu Contraseña?'} labelColor={'#2C5364'}></Links>

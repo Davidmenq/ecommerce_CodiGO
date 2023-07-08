@@ -1,6 +1,7 @@
 import React from 'react'
 
 const CartList = ({ data }) => {
+    /* se desestructura data en propiedades */
     const { title, images, quantity, price } = data;
 
     return (

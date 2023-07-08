@@ -45,7 +45,7 @@ export default function Home() {
         titulo="Technology" 
         parrafo="Descubre lo último en tecnología y encuentra los mejores productos para llevar tu experiencia al siguiente nivel. ¡Bienvenido a nuestra tienda de productos tecnológicos!"
         rutaimg={"/imagenes/Hero8.png"}
-        button={<BtnForm label="Ver productos" labelColor="white"/>}
+        button={<BtnForm label="Ver productos" labelColor="white" ruta='/productos'/>}
       />
       <section className='container my-5 px-4'>
         <h1 className='text-4xl mt-4 text-center font-light'>Productos Destacados</h1>
