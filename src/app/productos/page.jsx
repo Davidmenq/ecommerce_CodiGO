@@ -13,8 +13,11 @@ const Productos = () => {
     const category3 = 'automotive';
     const category4 = 'motorcycle';
 
-    const fetchCharacters = (url) =>{
-        fetch(url)
+
+
+    useEffect(() => {
+        const fetchCharacters = (url) =>{
+          fetch(url)
             .then(response => response.json())
             //.then(data => console.log(data.products))
             .then(data => {
@@ -22,9 +25,8 @@ const Productos = () => {
                 setCharacters(data.products.filter(item=>item.category===category1 || item.category===category2 || item.category===category3 || item.category===category4))
             })
             .catch(err => console.log(err))
-    }
+        }
 
-    useEffect(() => {
         fetchCharacters(initialUrl);
     }, [])
   

@@ -44,14 +44,14 @@ function classNames(...classes:any) {
 
 interface tipoProducto {
   brand?: string,
-  category?: string,
-  description?: string,
+  category: string,
+  description: string,
   discountPercentage?: number,
   id?: number,
-  images?: string[],
-  price?: number,
-  rating?: number,
-  stock?: number,
+  images: string[],
+  price: number,
+  rating: number,
+  stock: number,
   thumbnail?: string,
   title?: string,
 }
@@ -61,23 +61,25 @@ interface tipoProducto {
 
 const Producto = (props: any) => {
 
-  const [producto, setProducto] = useState<tipoProducto>({});  
+  const [producto, setProducto] = useState<tipoProducto>({category:'', description:'', images:[], rating:0, price:0, stock:0});  
   const [imagen, setImagen] = useState([]);
   const url = `https://dummyjson.com/products/${props.params.id}`;
-  const cargarDatos = async (urlApi: string) => {
-    try {
-      const respuesta = await fetch(urlApi);
-      const datos = await respuesta.json();
-      //console.log(datos.images);
-      //console.log(datos);
-      setProducto(datos);
-      setImagen(datos.images);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+
 
   useEffect(() => {
+    const cargarDatos = async (urlApi: string) => {
+      try {
+        const respuesta = await fetch(urlApi);
+        const datos = await respuesta.json();
+        //console.log(datos.images);
+        //console.log(datos);
+        setProducto(datos);
+        setImagen(datos.images);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     cargarDatos(url);
     //console.log(props);
   }, []);
@@ -171,7 +173,7 @@ const Producto = (props: any) => {
                     <StarIcon
                       key={index}
                       className={classNames(
-                        4 > estrellas
+                        producto.rating > estrellas
                           ? "text-gray-900"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0"

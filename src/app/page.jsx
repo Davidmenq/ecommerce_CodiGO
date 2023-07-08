@@ -31,7 +31,7 @@ export default function Home() {
       .then(data => {
         /* filtro por categorias smartphone y laptops de la api */
         const products = data.products.filter(product => category1.includes(product.category) || category2.includes(product.category));
-        console.log(products)
+        //console.log(products)
         setCharacters(products)
       })
       /* catch para el manejo de errores */
