@@ -43,7 +43,7 @@ export default function Home() {
     <main className="flex w-full flex-col items-center justify-between ">
       <Hero
         titulo="Technology" 
-        parrafo="Somos una empresa líder en ventas de productos tecnologícos"
+        parrafo="Descubre lo último en tecnología y encuentra los mejores productos para llevar tu experiencia al siguiente nivel. ¡Bienvenido a nuestra tienda de productos tecnológicos!"
         rutaimg={"/imagenes/Hero8.png"}
         button={<BtnForm label="Ver productos" labelColor="white"/>}
       />
