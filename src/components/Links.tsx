@@ -8,7 +8,7 @@ interface Props{
 
 const Links:FC<Props> = ({ruta, label, labelColor}) => {
   return (
-    <a href={`${ruta}`} className={` text-[${labelColor}] hover:scale-105 ease-in-out duration-300`}>{label}</a>
+    <a href={` ${ruta}`} className={` text-[${labelColor}] hover:scale-105 ease-in-out duration-300`}>{label}</a>
   )
 }
 

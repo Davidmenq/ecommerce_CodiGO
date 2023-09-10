@@ -10,7 +10,7 @@ const renderIconsDer = () => {
   const [cartItem] = useRecoilState(cartState);
   return (
     <>
-      <Link href={"/login"}>
+      <Link href={"/login"} className="flex space-x-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -25,6 +25,12 @@ const renderIconsDer = () => {
             d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
           />
         </svg>
+        <div className="flex space-x-2">
+          <p className="text-white">Mi cuenta</p>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
       </Link>
       <div className="relative cursor-pointer">
         <Link href="/cart">
@@ -108,16 +114,15 @@ const Header = () => {
                 <h1 className="hidden lg:block text-2xl text-[#50C2D8] font-bold">
                   Techn<span className="text-[#8AD2E1] font-bold">ology</span>
                 </h1>
-                <img src="/imagenes/Prueba2.png" alt="Logo" width={60} className="lg:hidden"/>
+                <img src="/imagenes/Prueba2.png" alt="Logo" width={60} className="lg:hidden" />
               </Link>
               <div className="flex space-x-4 lg:hidden">{renderIconsDer()}</div>
             </div>
           </>
           {/* Second part */}
           <div
-            className={`flex-1 justify-self-center pb-10 mt-8 lg:block lg:pb-0 lg:mt-0 ${
-              navbar ? "p-12 lg:p-0 block" : "hidden"
-            }`}
+            className={`flex-1 justify-self-center pb-10 mt-8 lg:block lg:pb-0 lg:mt-0 ${navbar ? "p-12 lg:p-0 block" : "hidden"
+              }`}
           >
             <ul className="h-screen lg:h-auto items-center justify-center lg:flex ">
               <ListNavBar

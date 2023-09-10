@@ -26,6 +26,7 @@ const Product = (product) => {
         /* guarda el estado del carrito 
         es representada por key,value, donde key sera 'cart' y value el json del estado */
         localStorage.setItem('cart', JSON.stringify(cartItem));
+        console.log(localStorage.getItem('cart'));
     }, [cartItem]);
 
 
@@ -41,7 +42,7 @@ const Product = (product) => {
         /* si no encuentra coincidencia, devuelve -1 y ejecuta lo que esta dentro del if*/
         if (cartItem.findIndex((pro) => pro.id === product.id) === -1) {
             /* se crea un objeto newProduct con sintaxis ...product para copiar las propiedades del producto sin alterar su data original */
-            /* se inicializa la cantidad en 1 de cada producto*/            
+            /* se inicializa la cantidad en 1 de cada producto*/  
             const newProduct = { ...product, quantity: 1 };
             /* setCartItem se usa para actualizar el estado del carrito */
             /* ...prevState copia los elementos del estado anterior */
@@ -62,7 +63,7 @@ const Product = (product) => {
             });
         }
         /* metodo para usar alertas como notificaciones */
-        toast.success(`${product.title} Agregado al Carrito`);
+        toast.success(`${product.nombre} Agregado al Carrito`);
     };
 
 
