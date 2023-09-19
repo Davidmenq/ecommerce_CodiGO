@@ -1,52 +1,82 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListNavBar from "./ListNavBar";
 import { useRecoilState } from "recoil";
 import { cartState } from "@/atoms/cartState";
-
-
+import { loginState } from "@/atoms/loginState"
 
 
 const renderIconsDer = () => {
   const [cartItem] = useRecoilState(cartState);
   const [showRedDiv, setShowRedDiv] = useState(false);
+  const [login, setLogin] = useRecoilState(loginState)
 
   const toggleRedDiv = () => {
     setShowRedDiv(!showRedDiv);
   };
-  
+
+  const LogoutButton = () => {
+    localStorage.removeItem("token");
+    setLogin("Mi cuenta")
+  }
+
   return (
     <>
-      <Link href={"/login"} className="flex space-x-1.5">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="white"
-          className="w-7 h-7"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-          />
+      {/* <Link href={"/login"} className="flex space-x-1.5"> */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="white"
+        className="w-7 h-7"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+        />
+      </svg>
+      {/* MI CUENTA  */}
+      <div onClick={toggleRedDiv} className="flex space-x-1.5">
+        <p className="text-white">{login}</p>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
         </svg>
-        {/* MI CUENTA  */}
-        <div onClick={toggleRedDiv} className="flex space-x-1.5">
-          <p className="text-white">Mi cuenta</p>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-white">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-        </div>
-        {showRedDiv ? (
+      </div>
+      {/* DROP DOWN CON CONDICIONALES */}
+      {showRedDiv ? (
         <div
-          className="bg-red-500 w-24 h-24 mt-4"
-        ></div>
+          className="right-[2.5cm] bg-gradient-to-t from-[#0F2027] bg-[#2C5364]  w-[145px] h-[100px] absolute top-[76px] flex flex-col justify-center items-center text-white"
+        >
+          {login !== "Mi cuenta" ? (
+            <>
+              <p className="font-bold">¡Hola!, {login}</p>
+              <Link href={'perfil'}><p>Mi Cuenta</p></Link>
+              <Link href={'pedidos'}><p>Mis Pedidos</p></Link>
+            
+              <Link onClick={()=> LogoutButton()} href={'/'}>
+              <p>Cerrar Sesión</p>
+              </Link>
+      
+            </>
+          ) : (
+            <>
+            <Link href={'/login'}>
+            <p>Iniciar Sesión</p>
+            </Link>
+            
+
+            <Link href={'/register'}>
+            <p>Registrate</p>
+            </Link>
+           </>
+          )}
+        </div>
       ) : null}
-      </Link>
+      {/* </Link> */}
       <div className="relative cursor-pointer">
         <Link href="/cart">
           <div>
@@ -132,7 +162,7 @@ const Header = () => {
                 </h1>
                 <img src="/imagenes/Prueba2.png" alt="Logo" width={60} className="lg:hidden" />
               </Link>
-              <div  className="flex space-x-4 lg:hidden">{renderIconsDer()}</div>
+              <div className="flex space-x-4 lg:hidden">{renderIconsDer()}</div>
             </div>
           </>
           {/* Second part */}
@@ -166,7 +196,7 @@ const Header = () => {
               />
             </ul>
           </div>
-          <div  className="hidden lg:flex lg:space-x-4">{renderIconsDer()}</div>
+          <div className="hidden lg:flex lg:space-x-4">{renderIconsDer()}</div>
         </div>
       </nav>
     </header>

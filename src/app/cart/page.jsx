@@ -7,28 +7,36 @@ import CartList from '@/components/CartList'
 import { GiShoppingCart } from 'react-icons/gi'
 import axios from 'axios'
 import { tokenState } from '@/atoms/tokenState'
+import { useRouter } from 'next/navigation'
+
+import Link from 'next/link'
 
 
 const Cart = () => {
-
+    // funcion para usar dentro de pedidoUser para redirigir al home
+    const router = useRouter()
+    const homeRedirect = () => {
+      router.push("/")
+      setCartItem([])
+    }
     const [cartItem, setCartItem] = useRecoilState(cartState); 
     /* metodo para calcular el total del carrito */    
     const totalPrice = () => {        
         let total = 0
         cartItem.forEach(item => total += (item.price * item.quantity))
         return total
-    }
-    // const createCheckoutSession = () => {
+    } 
 
-    // }
     const [token,setToken] = useRecoilState(tokenState)
       const pedidoUser = () => {
+
+        // devuelve un array con los productos 
         const detallePedido = cartItem.map(item => ({
           productoId: item.id, // Reemplaza 'item.id' con la propiedad que corresponde al ID del producto en tu objeto 'item'
           cantidad: item.quantity, // Reemplaza 'item.cantidad' con la propiedad que corresponde a la cantidad en tu objeto 'item'
         }));
-        console.log(detallePedido);
-        if (detallePedido.length >= 2) {
+        // validacion si el carrito >=1 , envia la peticion post 
+         if (detallePedido.length >= 1) {
           axios.post('http://127.0.0.1:5000/pedidos', {
             'detallePedido': detallePedido
           }, {
@@ -37,20 +45,16 @@ const Cart = () => {
             }
           })
             .then(function (response) {
-              console.log(response);
-              if (response.status === 200) {
+              if (response.status === 201) {
                 console.log(response);
+                alert("Pedido creado exitosamente")
+                homeRedirect()
               }
             })
             .catch(function (error) {
               console.log(error, 'error');
-              if (error.response && error.response.status === 401) {
-                alert("Credenciales inválidas");
-              }
             });
-        } else {
-          console.log("No hay suficientes elementos en el carrito para realizar el pedido.");
-        }
+        } 
       }
 
     return (

@@ -3,44 +3,67 @@ import BtnForm from '@/components/BtnForm'
 import ImageForm from '@/components/ImageForm'
 import InputDatos from '@/components/InputDatos'
 import Links from '@/components/Links'
+import Link from 'next/link'
 import PrincipalFontForm from '@/components/PrincipalFontForm'
-import React , {useState}from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { tokenState } from "@/atoms/tokenState"
 import { useRecoilState } from 'recoil'
+import { loginState } from '@/atoms/loginState'
+import jwt_decode from "jwt-decode";
 
 const Login = () => {
-    const [email,setEmail]=useState("")
-    const [contraseña,setContraseña]=useState("")
-    const [token,setToken] = useRecoilState(tokenState)
+    const [email, setEmail] = useState("")
+    const [contraseña, setContraseña] = useState("")
+    const [token, setToken] = useRecoilState(tokenState)
+    const [login, setLogin] = useRecoilState(loginState)
 
     const loginUser = () => {
         if (email.length === 0) {
-            alert("Email has been left blank!");
-          } else if (contraseña.length === 0) {
-            alert("Password has been left blank!");
-          } else {
-            axios.post('http://127.0.0.1:5000/login', {
+          alert("Email has been left blank!");
+        } else if (contraseña.length === 0) {
+          alert("Password has been left blank!");
+        } else {
+          axios
+            .post("http://127.0.0.1:5000/login", {
               correo: email,
-              password: contraseña
+              password: contraseña,
             })
             .then(function (response) {
               console.log(response);
               if (response.status === 200) {
                 const token = response.data.content; // Asumiendo que el token está en un campo 'token' de la respuesta
                 console.log("Token:", token);
-                localStorage.setItem('token', token);
-                setToken(token)
+                localStorage.setItem("token", token);
+                setToken(token);
+                getUserProfile();
               }
             })
             .catch(function (error) {
-              console.log(error, 'error');
+              console.log(error, "error");
               if (error.response && error.response.status === 401) {
                 alert("Invalid credentials");
               }
             });
-          }
-    }
+        }
+      };
+    
+      const getUserProfile = () => {
+        const token = localStorage.getItem("token"); 
+    
+        axios
+          .get("http://127.0.0.1:5000/perfil", {
+            headers: {
+              Authorization: `Bearer ${token}`, 
+            },
+          })
+          .then(function (response) {
+            setLogin(response.data.nombre)
+          })
+          .catch(function (error) {
+            console.error("Error al obtener el perfil del usuario:", error);
+          });
+      };
     return (
         <div className='w-full h-full flex flex-col lg:flex-row p-2 justify-center my-10'>
             <div className='flex flex-grow p-2 md:hidden'>
@@ -71,7 +94,7 @@ const Login = () => {
                     </section>
                     <section className='flex flex-col  justify-center lg:px-16 xl:px-40 py-5 hover:scale-105 ease-in-out duration-300'>
                         <label className={`flex text-[#50C2D8] font-light justify-start py-4`}>Contraseña</label>
-                        <input  onChange={(e) => setContraseña(e.target.value)} className='border-[1px] border-[#50C2D8] rounded-md shadow-lg ' placeholder="" type="password" />
+                        <input onChange={(e) => setContraseña(e.target.value)} className='border-[1px] border-[#50C2D8] rounded-md shadow-lg ' placeholder="" type="password" />
                     </section>
                     <div className='flex justify-start mt-2 p-2 lg:px-16 xl:px-40 '>
                         <input type="checkbox" className="" />
@@ -79,12 +102,14 @@ const Login = () => {
                     </div>
 
                     {/* <BtnForm label={'Iniciar Sesión'} labelColor={'white'} ruta={''}></BtnForm> */}
-  
+
                 </form>
+                <Link href={"/"}>
                 <button onClick={() => loginUser()} className='relative rounded-3xl border-2 mx-auto p-[1vh] pl-[4vw] pr-[4vw] md:pl-[2vw] my-4 md:pr-[2vw] bg-[#2C5364] font-light text-white hover:scale-105 ease-in-out duration-300 hover:bg-white hover:text-[#50C2D8] hover:font-semibold hover:border-[#50C2D8] lg:my-6'>
-                        Finalizar
-                       {/* <a href='/' className='absolute z-20 top-0 left-0 h-full w-full'></a>  */}
-                    </button>
+                   <p>Finalizar</p> 
+                    {/* <a href='/' className='absolute z-20 top-0 left-0 h-full w-full'></a>  */}
+                </button>
+                </Link>
                 <div className='flex justify-center p-6 '>
                     <Links ruta={'/recoverPassword'} label={'¿Olvidaste tu Contraseña?'} labelColor={'#2C5364'}></Links>
                 </div>

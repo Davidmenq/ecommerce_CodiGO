@@ -54,7 +54,7 @@ export default function Home() {
         <div className='mt-4 grid grid-cols-1 md:grid-cols-3 gap-4'>
           {/* se imprime por medio de map los productos con el componente Product con los datos de la api  */}
           {characters.map((product) =>
-          <Product key={product.id} id={product.id} title={product.nombre} price={product.precio} images={product.imagenes}/>)}
+          <Product key={product.id} stock={product.stock} id={product.id} title={product.nombre} price={product.precio} images={product.imagenes}/>)}
         </div>
       </section>
       <SectionInstructions />

@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { cartState } from "../atoms/cartState"
 import toast from 'react-hot-toast';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Product = (product) => {
     const [cartItem, setCartItem] = useRecoilState(cartState);
@@ -34,23 +35,29 @@ const Product = (product) => {
     /* cartItem almacena el estado del carrito
     mientras que serCartItem actualiza este estado
     y cartState proviene de un atomo que sera el estado inicial  */
-    
+
 
     /* funcion para agregar productos al carrito */
     const addItemsToCart = () => {
         /* compara el id del producto actual con el producto que se esta agregando */
         /* si no encuentra coincidencia, devuelve -1 y ejecuta lo que esta dentro del if*/
-        if (cartItem.findIndex((pro) => pro.id === product.id) === -1) {
+        if(product.stock<=0) {
+            // alert("No hay stock de este producto")
+            toast.error(`No hay stock de ${product.title}`);
+        }
+        else if (cartItem.findIndex((pro) => pro.id === product.id) === -1) {
             /* se crea un objeto newProduct con sintaxis ...product para copiar las propiedades del producto sin alterar su data original */
-            /* se inicializa la cantidad en 1 de cada producto*/  
+            /* se inicializa la cantidad en 1 de cada producto*/
             const newProduct = { ...product, quantity: 1 };
             /* setCartItem se usa para actualizar el estado del carrito */
             /* ...prevState copia los elementos del estado anterior */
             setCartItem((prevState) => [...prevState, newProduct]);
-        } else 
-        {   /* si el producto ya esta dentro del carrito */
+                    /* metodo para usar alertas como notificaciones */
+            toast.success(`${newProduct.title} Agregado al Carrito`);
+        } else {   /* si el producto ya esta dentro del carrito */
             setCartItem((prevState) => {
-                /* recorre el carrito con todos los elementos agregados */ 
+                toast.success(`${product.title} Agregado al Carrito`);
+                /* recorre el carrito con todos los elementos agregados */
                 return prevState.map((item) => {
                     /* se compara el id de los productos del carrito con el id que se esta agregando */
                     /* para encontrar el indice donde se debe actualizar la cantidad */
@@ -62,8 +69,7 @@ const Product = (product) => {
                 });
             });
         }
-        /* metodo para usar alertas como notificaciones */
-        toast.success(`${product.nombre} Agregado al Carrito`);
+
     };
 
 
@@ -75,7 +81,7 @@ const Product = (product) => {
                 className="relative overflow-hidden bg-cover bg-no-repeat"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-            >   
+            >
                 {/* ? encademamiento opcional */}
                 <img className="mx-auto w-[350px] h-[200px] object-contain" src={product.images?.[0]} alt="" />
                 <a href={`${product.id}`}>
