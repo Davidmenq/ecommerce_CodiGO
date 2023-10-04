@@ -8,8 +8,6 @@ import React from 'react';
 import SectionInstructions from '@/components/SectionInstructions';
 import Carousel from '@/components/Carousel';
 
-
-
 export default function Home() {
 
   /* characteres son los productos obtenidos de la api, tiene como valor iniciar "[]"
@@ -17,8 +15,8 @@ export default function Home() {
   const [characters, setCharacters] = useState([]);
 
   /* url y categorias a filtrar */
-  const initialUrl = 'http://127.0.0.1:5000/productos';
-  const category1 = 'Smartphones';
+  const initialUrl = 'https://ecommerce-api-backend-nlld.onrender.com/productos';
+  const category1 = 'Telefonos';
   const category2 = 'Laptops';
 
   /* funcion que nos permite inicializar una sola vez fetchCharacteres */

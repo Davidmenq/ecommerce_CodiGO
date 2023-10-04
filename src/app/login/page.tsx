@@ -25,7 +25,7 @@ const Login = () => {
           alert("Password has been left blank!");
         } else {
           axios
-            .post("http://127.0.0.1:5000/login", {
+            .post("https://ecommerce-api-backend-nlld.onrender.com/login", {
               correo: email,
               password: contraseña,
             })
@@ -52,7 +52,7 @@ const Login = () => {
         const token = localStorage.getItem("token"); 
     
         axios
-          .get("http://127.0.0.1:5000/perfil", {
+          .get("https://ecommerce-api-backend-nlld.onrender.com/perfil", {
             headers: {
               Authorization: `Bearer ${token}`, 
             },

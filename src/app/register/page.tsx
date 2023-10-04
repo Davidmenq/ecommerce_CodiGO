@@ -15,7 +15,7 @@ const Register = () => {
     const [contraseña, setContraseña] = useState('');
     const [repetirContraseña, setRepetirContraseña] = useState('');
     const registerUser = () => {
-        axios.post('http://127.0.0.1:5000/registro', {
+        axios.post('https://ecommerce-api-backend-nlld.onrender.com/registro', {
             nombre:nombre,
             apellido:apellido,
             correo: email,
