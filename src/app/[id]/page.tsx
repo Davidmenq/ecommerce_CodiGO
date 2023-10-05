@@ -43,27 +43,24 @@ function classNames(...classes:any) {
 }
 
 interface tipoProducto {
-  brand?: string,
-  category: string,
-  description: string,
-  discountPercentage?: number,
+  categoria: string,
+  descripcion: string,
   id?: number,
-  images: string[],
-  price: number,
-  rating: number,
+  imagenes: string[],
+  precio: number,
   stock: number,
-  thumbnail?: string,
-  title?: string,
-}
+  nombre?: string ,
+  rating:string }
+// }
 
 
 
 
 const Producto = (props: any) => {
 
-  const [producto, setProducto] = useState<tipoProducto>({category:'', description:'', images:[], rating:0, price:0, stock:0});  
+  const [producto, setProducto] = useState<tipoProducto>({categoria:'', descripcion:'', imagenes:[], precio:0, stock:0,rating:0});  
   const [imagen, setImagen] = useState([]);
-  const url = `https://dummyjson.com/products/${props.params.id}`;
+  const url = `https://ecommerce-api-backend-nlld.onrender.com/productos/${props.params.id}`;
 
 
   useEffect(() => {
@@ -71,10 +68,8 @@ const Producto = (props: any) => {
       try {
         const respuesta = await fetch(urlApi);
         const datos = await respuesta.json();
-        //console.log(datos.images);
-        //console.log(datos);
         setProducto(datos);
-        setImagen(datos.images);
+        setImagen(datos.imagenes);
       } catch (error) {
         console.error(error);
       }
@@ -84,13 +79,15 @@ const Producto = (props: any) => {
     //console.log(props);
   }, []);
 
+  console.log(producto);
+  console.log(imagen);
   
 
 
   return (
     <div className="bg-white">
       <div className='p-2 sm:px-6'>
-        <strong>Detalles de Producto:</strong> {producto.title} / {producto.category} / {producto.description}
+        <strong>Detalles de Producto:</strong> {producto.nombre} / {producto.categoria.nombre} / {producto.descripcion}
       </div>
       <div className="pt-6">
         <nav>
@@ -116,7 +113,7 @@ const Producto = (props: any) => {
                   href='/productos'
                   className="mr-2 text-sm font-medium text-gray-700"
                 >
-                  {producto.category}
+                  {producto.categoria.nombre}
                 </a>
                 <span className='text-2xl text-gray-700'>›</span>
               </div>
@@ -126,7 +123,7 @@ const Producto = (props: any) => {
                 href=''
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
-                {producto.title}
+                {producto.nombre}
               </a>
             </li>
           </ol>
@@ -142,7 +139,7 @@ const Producto = (props: any) => {
               key={index}
               src={item}
               alt={item}
-              className="h-full w-full object-cover object-center rounded-lg"
+              className="h-full w-full object-fit  rounded-lg"
             />
           ))}
         </div>
@@ -152,14 +149,14 @@ const Producto = (props: any) => {
         lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-              {producto.title}
+              {producto.nombre}
             </h1>
           </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <p className="text-3xl tracking-tight text-gray-900">
-              $ {producto.price}.00
+              $ {producto.precio}.00
             </p>
             <p className="text-2xl tracking-tight text-cyan-800">
               Stock  {producto.stock} unidades
@@ -186,7 +183,7 @@ const Producto = (props: any) => {
             </div>
 
             
-            <Product key={producto.id} id={producto.id} title={producto.title} price={producto.price} images={producto.images} />
+            <Product key={producto.id} id={producto.id} title={producto.nombre} price={producto.precio} images={imagen} />
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">

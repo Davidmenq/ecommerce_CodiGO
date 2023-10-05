@@ -7,13 +7,13 @@ const Productos = () => {
 
     const [characters, setCharacters] = useState([]);
   
-    const initialUrl= 'https://dummyjson.com/products?limit=100';
-    const category1 = 'smartphones';
-    const category2 = 'laptops';
-    const category3 = 'automotive';
-    const category4 = 'motorcycle';
-
-
+    const initialUrl= 'https://ecommerce-api-backend-nlld.onrender.com/productos';
+    const category1 = 'Telefonos';
+    const category2 = 'Laptops';
+    const category3 = 'Cases';
+    const category4 = 'Impresoras';
+    const category5 = 'Cooler Refrigeracion';
+    const category6 = 'Monitores';
 
     useEffect(() => {
         const fetchCharacters = (url) =>{
@@ -21,8 +21,8 @@ const Productos = () => {
             .then(response => response.json())
             //.then(data => console.log(data.products))
             .then(data => {
-                //console.log(data.products)
-                setCharacters(data.products.filter(item=>item.category===category1 || item.category===category2 || item.category===category3 || item.category===category4))
+                console.log(data)
+                setCharacters(data.filter(item=>item.categoria.nombre===category1 || item.categoria.nombre===category2 || item.categoria.nombre===category3 || item.categoria.nombre===category4|| item.categoria.nombre===category5 || item.categoria.nombre===category6))
             })
             .catch(err => console.log(err))
         }
@@ -35,7 +35,7 @@ const Productos = () => {
         <h1 className='flex justify-center items-center text-2xl h-14'><u>Productos</u></h1>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
           {characters.map((item,index) => (
-            <Card key={index} id={item.id} title={item.title} price={item.price} images={item.images}/>
+            <Card key={index} id={item.id} title={item.nombre} price={item.precio} images={item.imagenes}/>
           ))}
         </div>  
     </div>
