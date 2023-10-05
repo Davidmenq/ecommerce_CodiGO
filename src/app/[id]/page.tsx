@@ -35,6 +35,7 @@ const product = {
     principal del conjunto es de 48MP con estabilización por sensor, sumando cámaras ultrawide y telefoto de 12MP. El iPhone 
     14 Pro Max soporta carga inalámbrica, resiste al polvo y agua, tiene parlantes stereo, soporta el sistema de mensajería de 
     emergencia vía satélite de Apple y corre iOS 16.`,
+  rating:3.5,
 };
 const reviews = { totalCount: 117 };
 
@@ -42,46 +43,49 @@ function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface tipoProducto {
-  brand?: string,
-  category: string,
-  description: string,
-  discountPercentage?: number,
+interface tipoproducto {
+  //brand?: string,
+  categoria: any,
+  descripcion: string,
+  //discountPercentage?: number,
   id?: number,
-  images: string[],
-  price: number,
-  rating: number,
+  imagenes: string[],
+  precio: number,
+  //rating: number,
   stock: number,
-  thumbnail?: string,
-  title?: string,
+  //thumbnail?: string,
+  nombre?: string,
 }
 
 
 
 
-const Producto = (props: any) => {
+const producto = (props: any) => {
 
-  const [producto, setProducto] = useState<tipoProducto>({category:'', description:'', images:[], rating:0, price:0, stock:0});  
+  const [producto, setProducto] = useState<tipoproducto>({categoria:'', descripcion:'', imagenes:[], precio:0, stock:0});  
   const [imagen, setImagen] = useState([]);
-  const url = `https://dummyjson.com/products/${props.params.id}`;
-
+  const [categoria, setCategoria] = useState([]);
+  //const url = `https://dummyjson.com/products/${producto.params.id}`;
+  const url = `https://ecommerce-api-backend-nlld.onrender.com/productos/${props.params.id}`;
 
   useEffect(() => {
     const cargarDatos = async (urlApi: string) => {
       try {
         const respuesta = await fetch(urlApi);
         const datos = await respuesta.json();
-        //console.log(datos.images);
+        //console.log(datos.imagenes);
+        //console.log(datos.categoria.nombre);
         //console.log(datos);
         setProducto(datos);
-        setImagen(datos.images);
+        setImagen(datos.imagenes);
+        setCategoria(datos.categoria.nombre);
       } catch (error) {
         console.error(error);
       }
     };
 
     cargarDatos(url);
-    //console.log(props);
+    //console.log(producto);
   }, []);
 
   
@@ -90,7 +94,7 @@ const Producto = (props: any) => {
   return (
     <div className="bg-white">
       <div className='p-2 sm:px-6'>
-        <strong>Detalles de Producto:</strong> {producto.title} / {producto.category} / {producto.description}
+        <strong>Detalles de producto:</strong> {producto.nombre} / {categoria} / {producto.descripcion}
       </div>
       <div className="pt-6">
         <nav>
@@ -104,7 +108,7 @@ const Producto = (props: any) => {
                   href='/productos'
                   className="mr-2 text-sm font-medium text-gray-900"
                 >
-                  Productos
+                  productos
                   {/*puedo colocar un nodo anterior aquí*/}
                 </a>
                 <span className='text-2xl'>›</span>
@@ -116,7 +120,7 @@ const Producto = (props: any) => {
                   href='/productos'
                   className="mr-2 text-sm font-medium text-gray-700"
                 >
-                  {producto.category}
+                  {categoria}
                 </a>
                 <span className='text-2xl text-gray-700'>›</span>
               </div>
@@ -126,7 +130,7 @@ const Producto = (props: any) => {
                 href=''
                 className="font-medium text-gray-500 hover:text-gray-600"
               >
-                {producto.title}
+                {producto.nombre}
               </a>
             </li>
           </ol>
@@ -152,14 +156,14 @@ const Producto = (props: any) => {
         lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
-              {producto.title}
+              {producto.nombre}
             </h1>
           </div>
 
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <p className="text-3xl tracking-tight text-gray-900">
-              $ {producto.price}.00
+              $ {producto.precio}.00
             </p>
             <p className="text-2xl tracking-tight text-cyan-800">
               Stock  {producto.stock} unidades
@@ -173,7 +177,7 @@ const Producto = (props: any) => {
                     <StarIcon
                       key={index}
                       className={classNames(
-                        producto.rating > estrellas
+                        product.rating > estrellas
                           ? "text-gray-900"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0"
@@ -186,7 +190,7 @@ const Producto = (props: any) => {
             </div>
 
             
-            <Product key={producto.id} id={producto.id} title={producto.title} price={producto.price} images={producto.images} />
+            <Product key={producto.id} id={producto.id} title={producto.nombre} price={producto.precio} images={producto.imagenes} />
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -227,4 +231,4 @@ const Producto = (props: any) => {
   );
 };
 
-export default Producto;
+export default producto;
