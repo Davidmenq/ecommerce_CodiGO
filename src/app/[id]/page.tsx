@@ -88,6 +88,8 @@ const producto = (props: any) => {
     //console.log(producto);
   }, []);
 
+  console.log(producto);
+  console.log(imagen);
   
 
 
@@ -146,7 +148,7 @@ const producto = (props: any) => {
               key={index}
               src={item}
               alt={item}
-              className="h-full w-full object-cover object-center rounded-lg"
+              className="h-full w-full object-fit  rounded-lg"
             />
           ))}
         </div>
