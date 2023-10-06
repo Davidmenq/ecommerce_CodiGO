@@ -35,6 +35,7 @@ const product = {
     principal del conjunto es de 48MP con estabilización por sensor, sumando cámaras ultrawide y telefoto de 12MP. El iPhone 
     14 Pro Max soporta carga inalámbrica, resiste al polvo y agua, tiene parlantes stereo, soporta el sistema de mensajería de 
     emergencia vía satélite de Apple y corre iOS 16.`,
+  rating:3.5,
 };
 const reviews = { totalCount: 117 };
 
@@ -42,41 +43,49 @@ function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
 }
 
-interface tipoProducto {
-  categoria: string,
+interface tipoproducto {
+  //brand?: string,
+  categoria: any,
   descripcion: string,
+  //discountPercentage?: number,
   id?: number,
   imagenes: string[],
   precio: number,
+  //rating: number,
   stock: number,
-  nombre?: string ,
-  rating:string }
-// }
+  //thumbnail?: string,
+  nombre?: string,
+}
 
 
 
 
-const Producto = (props: any) => {
+const producto = (props: any) => {
 
-  const [producto, setProducto] = useState<tipoProducto>({categoria:'', descripcion:'', imagenes:[], precio:0, stock:0,rating:0});  
+  const [producto, setProducto] = useState<tipoproducto>({categoria:'', descripcion:'', imagenes:[], precio:0, stock:0});  
   const [imagen, setImagen] = useState([]);
+  const [categoria, setCategoria] = useState([]);
+  //const url = `https://dummyjson.com/products/${producto.params.id}`;
   const url = `https://ecommerce-api-backend-nlld.onrender.com/productos/${props.params.id}`;
-
 
   useEffect(() => {
     const cargarDatos = async (urlApi: string) => {
       try {
         const respuesta = await fetch(urlApi);
         const datos = await respuesta.json();
+        //console.log(datos.imagenes);
+        //console.log(datos.categoria.nombre);
+        //console.log(datos);
         setProducto(datos);
         setImagen(datos.imagenes);
+        setCategoria(datos.categoria.nombre);
       } catch (error) {
         console.error(error);
       }
     };
 
     cargarDatos(url);
-    //console.log(props);
+    //console.log(producto);
   }, []);
 
   console.log(producto);
@@ -87,7 +96,7 @@ const Producto = (props: any) => {
   return (
     <div className="bg-white">
       <div className='p-2 sm:px-6'>
-        <strong>Detalles de Producto:</strong> {producto.nombre} / {producto.categoria.nombre} / {producto.descripcion}
+        <strong>Detalles de producto:</strong> {producto.nombre} / {categoria} / {producto.descripcion}
       </div>
       <div className="pt-6">
         <nav>
@@ -101,7 +110,7 @@ const Producto = (props: any) => {
                   href='/productos'
                   className="mr-2 text-sm font-medium text-gray-900"
                 >
-                  Productos
+                  productos
                   {/*puedo colocar un nodo anterior aquí*/}
                 </a>
                 <span className='text-2xl'>›</span>
@@ -113,7 +122,7 @@ const Producto = (props: any) => {
                   href='/productos'
                   className="mr-2 text-sm font-medium text-gray-700"
                 >
-                  {producto.categoria.nombre}
+                  {categoria}
                 </a>
                 <span className='text-2xl text-gray-700'>›</span>
               </div>
@@ -170,7 +179,7 @@ const Producto = (props: any) => {
                     <StarIcon
                       key={index}
                       className={classNames(
-                        producto.rating > estrellas
+                        product.rating > estrellas
                           ? "text-gray-900"
                           : "text-gray-200",
                         "h-5 w-5 flex-shrink-0"
@@ -183,7 +192,7 @@ const Producto = (props: any) => {
             </div>
 
             
-            <Product key={producto.id} id={producto.id} title={producto.nombre} price={producto.precio} images={imagen} />
+            <Product key={producto.id} id={producto.id} title={producto.nombre} price={producto.precio} images={producto.imagenes} />
           </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -224,4 +233,4 @@ const Producto = (props: any) => {
   );
 };
 
-export default Producto;
+export default producto;
