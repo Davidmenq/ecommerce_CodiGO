@@ -3,6 +3,9 @@
 import React from "react";
 import { useState } from "react";
 import { Switch } from "@headlessui/react";
+import axios from "axios";
+import { redirect, useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(" ");
@@ -11,10 +14,49 @@ function classNames(...classes:any) {
 export default function Example() {
   
   const [agreed, setAgreed] = useState(false);
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [empresa, setEmpresa] = useState("");
+  const [email, setEmail] = useState("");
+  const [localidad, setLocalidad] = useState("Arequipa");
+  const [telefono, setTelefono] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  
+  const router = useRouter();
+  const redirigir=()=>router.push("/")
 
   const handleClick = (event:any) => {
     event.preventDefault();
-    console.log("mensaje de contacto enviado")
+   
+    console.log(`${agreed} Hola, soy ${nombre} ${apellido} mi empresa es: 
+    ${empresa} mi email: ${email} de ${localidad} mi numero de cel: ${telefono}. MENSAJE: ${mensaje}`);
+    
+    axios
+      .post("http://localhost:5000/enviar-mensaje", {
+        nombre: nombre,
+        apellido: apellido,
+        empresa: empresa,
+        email: email,
+        localidad: localidad,
+        telefono: telefono,
+        mensaje: mensaje,
+        politicas: agreed
+      })
+      .then(function(response){
+        console.log(response)
+        if (response.status === 200){
+          console.log("El mensaje fue enviado con exito");
+          toast.success(`${nombre}, tu mensaje fue enviado con éxito`)
+          setTimeout(redirigir,3000);
+          
+        }
+      })
+      .catch(function(error) {
+          console.log(error, "error");
+          if (error.response && error.response.status === 401) {
+            alert("No se envio el mensaje, vuelva a intentarlo por favor");
+          }
+        })
   };
 
   return (
@@ -49,6 +91,7 @@ export default function Example() {
                 </label>
                 <div className="mt-2.5">
                   <input
+                    onChange={(e)=>setNombre(e.target.value)}
                     type="text"
                     name="first-name"
                     id="first-name"
@@ -67,6 +110,7 @@ export default function Example() {
                 </label>
                 <div className="mt-2.5">
                   <input
+                    onChange={(e)=>setApellido(e.target.value)}
                     type="text"
                     name="last-name"
                     id="last-name"
@@ -86,6 +130,7 @@ export default function Example() {
                 </label>
                 <div className="mt-2.5">
                   <input
+                    onChange={(e)=>setEmpresa(e.target.value)}
                     type="text"
                     name="company"
                     id="company"
@@ -105,6 +150,7 @@ export default function Example() {
                 </label>
                 <div className="mt-2.5">
                   <input
+                    onChange={(e)=>setEmail(e.target.value)}
                     type="email"
                     name="email"
                     id="email"
@@ -128,18 +174,21 @@ export default function Example() {
                       Ciudad
                     </label>
                     <select
+                      value={localidad}
+                      onChange={(e)=>setLocalidad(e.target.value)}
                       id="country"
                       name="country"
                       className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 
                       focus:ring-2 focus:ring-inset focus:ring-[#5cc7f5] sm:text-sm"
                     >
-                      <option>Arequipa</option>
-                      <option>Lima</option>
-                      <option>Otros</option>
+                      <option value="Arequipa">Arequipa</option>
+                      <option value="Lima">Lima</option>
+                      <option value="Otros">Otros</option>
                     </select>
 
                   </div>
                   <input
+                    onChange={(e)=>setTelefono(e.target.value)}
                     type="tel"
                     name="phone-number"
                     id="phone-number"
@@ -159,6 +208,7 @@ export default function Example() {
                 </label>
                 <div className="mt-2.5">
                   <textarea
+                    onChange={(e)=>setMensaje(e.target.value)}
                     name="message"
                     id="message"
                     rows={4}
