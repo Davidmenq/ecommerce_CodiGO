@@ -6,7 +6,7 @@ const AcordeonTailwind = () => {
 
   const [selected, setSelected] = useState(null);
 
-  const toggle = (i) =>{
+  const toggle = (i:any) =>{
     if (selected === i){
       return setSelected(null);
     }
