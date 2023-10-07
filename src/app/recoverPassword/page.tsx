@@ -20,7 +20,7 @@ const RecoverPassword = () => {
     console.log(`${email}`);
 
     axios
-      .post("http://localhost:5000/recuperar-contrasena", {
+      .post("https://ecommerce-api-backend-nlld.onrender.com/recuperar-contrasena", {
         email: email,
       })
       .then(function (response) {
