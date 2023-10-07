@@ -23,6 +23,23 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/cart/page.jsx", "src/app/cart/page.jsx", "src/app/cart/page.jsx", "src/app/cart/page.jsx", "src/components/Carousel.tsx", "src/app/page.jsx", "src/app/productos/page.jsx", "src/app/[id]/page.tsx", "src/app/[id]/page.tsx", "src/app/prueba/page.jsx", "src/app/login/page.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/cart/page.jsx",
+    "src/app/cart/page.jsx",
+    "src/app/cart/page.jsx",
+    "src/app/cart/page.jsx",
+    "src/components/Carousel.tsx",
+    "src/app/page.jsx",
+    "src/app/productos/page.jsx",
+    "src/app/[id]/page.tsx",
+    "src/app/[id]/page.tsx",
+    "src/app/prueba/page.jsx",
+    "src/app/login/page.tsx",
+    "src/app/recoverPassword/page.jtx"
+  ],
   "exclude": ["node_modules"]
 }
