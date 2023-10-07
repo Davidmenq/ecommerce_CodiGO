@@ -32,7 +32,7 @@ export default function Example() {
     ${empresa} mi email: ${email} de ${localidad} mi numero de cel: ${telefono}. MENSAJE: ${mensaje}`);
     
     axios
-      .post("http://localhost:5000/enviar-mensaje", {
+      .post("https://ecommerce-api-backend-nlld.onrender.com/enviar-mensaje", {
         nombre: nombre,
         apellido: apellido,
         empresa: empresa,
